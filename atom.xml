@@ -41,60 +41,6 @@
   </entry>
   
   <entry>
-    <title><![CDATA[2016书单]]></title>
-    <link href="http://pzengseu.github.io/2016/01/17/2016%E4%B9%A6%E5%8D%95/"/>
-    <id>http://pzengseu.github.io/2016/01/17/2016书单/</id>
-    <published>2016-01-17T11:50:14.000Z</published>
-    <updated>2016-01-17T12:11:07.000Z</updated>
-    <content type="html"><![CDATA[<h2 id="2016_u9605_u8BFB_u8BA1_u5212"><a href="#2016_u9605_u8BFB_u8BA1_u5212" class="headerlink" title="2016阅读计划"></a>2016阅读计划</h2><p>这是2016年的阅读计划，包括了一些<em>闲书</em>和专业书,打算每月至少稳定输出两本，目前打算读的书如下：</p>
-<h3 id="u6587_u5B66"><a href="#u6587_u5B66" class="headerlink" title="文学"></a>文学</h3><h4 id="u52A0_u897F_u4E9A_B7_u9A6C_u5C14_u514B_u65AF"><a href="#u52A0_u897F_u4E9A_B7_u9A6C_u5C14_u514B_u65AF" class="headerlink" title="加西亚·马尔克斯"></a>加西亚·马尔克斯</h4><ul>
-<li>霍乱时期的爱情</li>
-<li>百年孤独</li>
-</ul>
-<h4 id="u5DDD_u7AEF_u5EB7_u6210"><a href="#u5DDD_u7AEF_u5EB7_u6210" class="headerlink" title="川端康成"></a>川端康成</h4><ul>
-<li>雪国</li>
-<li>古都</li>
-<li>千纸鹤</li>
-</ul>
-<h4 id="u5176_u5B83"><a href="#u5176_u5B83" class="headerlink" title="其它"></a>其它</h4><ul>
-<li>1984</li>
-<li>不能承受生命之轻</li>
-<li>牧师林的葬礼</li>
-<li>清明上河图密码</li>
-</ul>
-<h3 id="u5386_u53F2"><a href="#u5386_u53F2" class="headerlink" title="历史"></a>历史</h3><ul>
-<li>枪炮、病菌与钢铁</li>
-<li>全球通史</li>
-<li>光荣与梦想</li>
-</ul>
-<h3 id="u54F2_u5B66"><a href="#u54F2_u5B66" class="headerlink" title="哲学"></a>哲学</h3><ul>
-<li>苏菲的世界</li>
-</ul>
-<h3 id="u4E13_u4E1A_u4E66"><a href="#u4E13_u4E1A_u4E66" class="headerlink" title="专业书"></a>专业书</h3><ul>
-<li>python cookbook</li>
-<li>TCP/IP详解　卷一</li>
-<li>RYU book</li>
-<li>python 数据分析</li>
-<li>机器学习</li>
-<li>Python机器学习实战</li>
-</ul>
-<p><strong> 这个书单会逐步完善　</strong></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h2 id="2016_u9605_u8BFB_u8BA1_u5212"><a href="#2016_u9605_u8BFB_u8BA1_u5212" class="headerlink" title="2016阅读计划"></a>2016阅读计划</h2><p>这是2016]]>
-    </summary>
-    
-      <category term="2016" scheme="http://pzengseu.github.io/tags/2016/"/>
-    
-      <category term="书单" scheme="http://pzengseu.github.io/tags/%E4%B9%A6%E5%8D%95/"/>
-    
-      <category term="阅读" scheme="http://pzengseu.github.io/tags/%E9%98%85%E8%AF%BB/"/>
-    
-      <category term="阅读" scheme="http://pzengseu.github.io/categories/%E9%98%85%E8%AF%BB/"/>
-    
-  </entry>
-  
-  <entry>
     <title><![CDATA[git简单记录]]></title>
     <link href="http://pzengseu.github.io/2016/01/17/git%E7%AE%80%E5%8D%95%E8%AE%B0%E5%BD%95/"/>
     <id>http://pzengseu.github.io/2016/01/17/git简单记录/</id>
@@ -146,11 +92,65 @@
   </entry>
   
   <entry>
+    <title><![CDATA[2016书单]]></title>
+    <link href="http://pzengseu.github.io/2016/01/01/2016%E4%B9%A6%E5%8D%95/"/>
+    <id>http://pzengseu.github.io/2016/01/01/2016书单/</id>
+    <published>2016-01-01T11:50:14.000Z</published>
+    <updated>2016-01-17T14:34:15.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="2016_u9605_u8BFB_u8BA1_u5212"><a href="#2016_u9605_u8BFB_u8BA1_u5212" class="headerlink" title="2016阅读计划"></a>2016阅读计划</h2><p>这是2016年的阅读计划，包括了一些<em>闲书</em>和专业书,打算每月至少稳定输出两本，目前打算读的书如下：</p>
+<h3 id="u6587_u5B66"><a href="#u6587_u5B66" class="headerlink" title="文学"></a>文学</h3><h4 id="u52A0_u897F_u4E9A_B7_u9A6C_u5C14_u514B_u65AF"><a href="#u52A0_u897F_u4E9A_B7_u9A6C_u5C14_u514B_u65AF" class="headerlink" title="加西亚·马尔克斯"></a>加西亚·马尔克斯</h4><ul>
+<li>霍乱时期的爱情</li>
+<li>百年孤独</li>
+</ul>
+<h4 id="u5DDD_u7AEF_u5EB7_u6210"><a href="#u5DDD_u7AEF_u5EB7_u6210" class="headerlink" title="川端康成"></a>川端康成</h4><ul>
+<li>雪国</li>
+<li>古都</li>
+<li>千纸鹤</li>
+</ul>
+<h4 id="u5176_u5B83"><a href="#u5176_u5B83" class="headerlink" title="其它"></a>其它</h4><ul>
+<li>1984</li>
+<li>不能承受生命之轻</li>
+<li>牧师林的葬礼</li>
+<li>清明上河图密码</li>
+</ul>
+<h3 id="u5386_u53F2"><a href="#u5386_u53F2" class="headerlink" title="历史"></a>历史</h3><ul>
+<li>枪炮、病菌与钢铁</li>
+<li>全球通史</li>
+<li>光荣与梦想</li>
+</ul>
+<h3 id="u54F2_u5B66"><a href="#u54F2_u5B66" class="headerlink" title="哲学"></a>哲学</h3><ul>
+<li>苏菲的世界</li>
+</ul>
+<h3 id="u4E13_u4E1A_u4E66"><a href="#u4E13_u4E1A_u4E66" class="headerlink" title="专业书"></a>专业书</h3><ul>
+<li>python cookbook</li>
+<li>TCP/IP详解　卷一</li>
+<li>RYU book</li>
+<li>python 数据分析</li>
+<li>机器学习</li>
+<li>Python机器学习实战</li>
+</ul>
+<p><strong> 这个书单会逐步完善　</strong></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="2016_u9605_u8BFB_u8BA1_u5212"><a href="#2016_u9605_u8BFB_u8BA1_u5212" class="headerlink" title="2016阅读计划"></a>2016阅读计划</h2><p>这是2016]]>
+    </summary>
+    
+      <category term="2016" scheme="http://pzengseu.github.io/tags/2016/"/>
+    
+      <category term="书单" scheme="http://pzengseu.github.io/tags/%E4%B9%A6%E5%8D%95/"/>
+    
+      <category term="阅读" scheme="http://pzengseu.github.io/tags/%E9%98%85%E8%AF%BB/"/>
+    
+      <category term="阅读" scheme="http://pzengseu.github.io/categories/%E9%98%85%E8%AF%BB/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[2015书单]]></title>
-    <link href="http://pzengseu.github.io/2016/01/17/2015%E9%98%85%E8%AF%BB%E5%A5%BD%E4%B9%A6/"/>
-    <id>http://pzengseu.github.io/2016/01/17/2015阅读好书/</id>
-    <published>2016-01-17T01:26:55.000Z</published>
-    <updated>2016-01-17T11:26:40.000Z</updated>
+    <link href="http://pzengseu.github.io/2015/12/31/2015%E9%98%85%E8%AF%BB%E5%A5%BD%E4%B9%A6/"/>
+    <id>http://pzengseu.github.io/2015/12/31/2015阅读好书/</id>
+    <published>2015-12-31T01:26:55.000Z</published>
+    <updated>2016-01-17T14:33:59.000Z</updated>
     <content type="html"><![CDATA[<h1 id="2015_u4E66_u5355"><a href="#2015_u4E66_u5355" class="headerlink" title="2015书单"></a>2015书单</h1><p>１．《活着》，余华．看完这本书是非常沉重的，有的时候活着比死去更痛苦，因为要承受的更多．</p>
 <p>２．《许三观卖血记》，余华．同样非常沉重的一本书，许三观为了生活一次次卖血，结局却换来子女冷漠的态度，令人苦涩．</p>
 <p>３．《曾国藩传》，唐浩明．很好的一本人物传纪，比较全面的评价了曾国藩．PS:为官要学曾国藩，经商要学胡雪岩．</p>
