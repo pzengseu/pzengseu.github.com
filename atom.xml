@@ -3,9 +3,9 @@
   <title><![CDATA[zp's blog]]></title>
   <subtitle><![CDATA[Reading, thinking and coding]]></subtitle>
   <link href="/atom.xml" rel="self"/>
-  <link href="http://0.0.0.0/"/>
-  <updated>2016-01-17T13:32:06.000Z</updated>
-  <id>http://0.0.0.0/</id>
+  <link href="http://pzengseu.github.io/"/>
+  <updated>2016-01-17T14:11:24.000Z</updated>
+  <id>http://pzengseu.github.io/</id>
   
   <author>
     <name><![CDATA[zpeng]]></name>
@@ -16,10 +16,10 @@
   
   <entry>
     <title><![CDATA[个人博客]]></title>
-    <link href="http://0.0.0.0/2016/01/17/personal_blog/"/>
-    <id>http://0.0.0.0/2016/01/17/personal_blog/</id>
+    <link href="http://pzengseu.github.io/2016/01/17/personal_blog/"/>
+    <id>http://pzengseu.github.io/2016/01/17/personal_blog/</id>
     <published>2016-01-17T12:48:35.000Z</published>
-    <updated>2016-01-17T13:32:06.000Z</updated>
+    <updated>2016-01-17T14:11:24.000Z</updated>
     <content type="html"><![CDATA[<h1 id="u6211_u7684_u535A_u5BA2"><a href="#u6211_u7684_u535A_u5BA2" class="headerlink" title="我的博客"></a>我的博客</h1><h2 id="u4E3A_u4F55_u5199"><a href="#u4E3A_u4F55_u5199" class="headerlink" title="为何写"></a>为何写</h2><p>现在互联网上有各种博客，比如开源中国、CSDN、博客园等猿类聚集地，还有新浪博客这种大众博客。我用过新浪博客和开源中国的博客，但都不能让我满意，首先不喜欢它们的排版，其次猿类也该有自己的私人空间，一个可以自己管理内容的空间，而且我看大牛们都有自己的博客，渣渣得向大牛看齐！</p>
 <h2 id="u5982_u4F55_u5199"><a href="#u5982_u4F55_u5199" class="headerlink" title="如何写"></a>如何写</h2><p>以前我写文章写博客，基本都是用Word,vim甚至记事本，这写东西写起文章来真是难受。用Word要时刻注意文章的排版，用vim码字是很爽，但真不适合写文章，至于记事本，这是什么玩意！最近看到有<a href="https://en.wikipedia.org/wiki/Markdown" target="_blank" rel="external">Markdown</a>这个东西，看了几分钟就喜欢上它了，这个东西的语法很简单，却能写出有很好排版的东西，据说很多文字工作者都在用，我算时坐井观天了。推荐在线markdown工具,<a href="https://www.zybuluo.com/" target="_blank" rel="external">cmd markdown</a>,离线markdown编辑器<a href="http://pad.haroopress.com/" target="_blank" rel="external">haroopad</a>.</p>
 <h2 id="u600E_u4E48_u505A"><a href="#u600E_u4E48_u505A" class="headerlink" title="怎么做"></a>怎么做</h2><p>由于时间有限，且个人精力不是放在做网站上，所以选择现成的网站框架。这个博客是根据<a href="https://hexo.io" target="_blank" rel="external">hexo</a>和<a href="https://pages.github.com" target="_blank" rel="external">github pages</a>制作而成，用到了<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">hexo-theme-next</a>主题，这个主题有详细的配置文档。<br>代码托管在github上：</p>
@@ -32,18 +32,18 @@
     <![CDATA[<h1 id="u6211_u7684_u535A_u5BA2"><a href="#u6211_u7684_u535A_u5BA2" class="headerlink" title="我的博客"></a>我的博客</h1><h2 id="u4E3A_u4F55_u5199">]]>
     </summary>
     
-      <category term="hexo" scheme="http://0.0.0.0/tags/hexo/"/>
+      <category term="hexo" scheme="http://pzengseu.github.io/tags/hexo/"/>
     
-      <category term="next" scheme="http://0.0.0.0/tags/next/"/>
+      <category term="next" scheme="http://pzengseu.github.io/tags/next/"/>
     
-      <category term="博客" scheme="http://0.0.0.0/categories/%E5%8D%9A%E5%AE%A2/"/>
+      <category term="博客" scheme="http://pzengseu.github.io/categories/%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[2016书单]]></title>
-    <link href="http://0.0.0.0/2016/01/17/2016%E4%B9%A6%E5%8D%95/"/>
-    <id>http://0.0.0.0/2016/01/17/2016书单/</id>
+    <link href="http://pzengseu.github.io/2016/01/17/2016%E4%B9%A6%E5%8D%95/"/>
+    <id>http://pzengseu.github.io/2016/01/17/2016书单/</id>
     <published>2016-01-17T11:50:14.000Z</published>
     <updated>2016-01-17T12:11:07.000Z</updated>
     <content type="html"><![CDATA[<h2 id="2016_u9605_u8BFB_u8BA1_u5212"><a href="#2016_u9605_u8BFB_u8BA1_u5212" class="headerlink" title="2016阅读计划"></a>2016阅读计划</h2><p>这是2016年的阅读计划，包括了一些<em>闲书</em>和专业书,打算每月至少稳定输出两本，目前打算读的书如下：</p>
@@ -84,20 +84,20 @@
     <![CDATA[<h2 id="2016_u9605_u8BFB_u8BA1_u5212"><a href="#2016_u9605_u8BFB_u8BA1_u5212" class="headerlink" title="2016阅读计划"></a>2016阅读计划</h2><p>这是2016]]>
     </summary>
     
-      <category term="2016" scheme="http://0.0.0.0/tags/2016/"/>
+      <category term="2016" scheme="http://pzengseu.github.io/tags/2016/"/>
     
-      <category term="书单" scheme="http://0.0.0.0/tags/%E4%B9%A6%E5%8D%95/"/>
+      <category term="书单" scheme="http://pzengseu.github.io/tags/%E4%B9%A6%E5%8D%95/"/>
     
-      <category term="阅读" scheme="http://0.0.0.0/tags/%E9%98%85%E8%AF%BB/"/>
+      <category term="阅读" scheme="http://pzengseu.github.io/tags/%E9%98%85%E8%AF%BB/"/>
     
-      <category term="阅读" scheme="http://0.0.0.0/categories/%E9%98%85%E8%AF%BB/"/>
+      <category term="阅读" scheme="http://pzengseu.github.io/categories/%E9%98%85%E8%AF%BB/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[git简单记录]]></title>
-    <link href="http://0.0.0.0/2016/01/17/git%E7%AE%80%E5%8D%95%E8%AE%B0%E5%BD%95/"/>
-    <id>http://0.0.0.0/2016/01/17/git简单记录/</id>
+    <link href="http://pzengseu.github.io/2016/01/17/git%E7%AE%80%E5%8D%95%E8%AE%B0%E5%BD%95/"/>
+    <id>http://pzengseu.github.io/2016/01/17/git简单记录/</id>
     <published>2016-01-17T11:36:24.000Z</published>
     <updated>2016-01-17T11:46:08.000Z</updated>
     <content type="html"><![CDATA[<h2 id="u7B80_u5355_u7684_u8BB0_u5F55git_u7684_u4F7F_u7528_u65B9_u6CD5"><a href="#u7B80_u5355_u7684_u8BB0_u5F55git_u7684_u4F7F_u7528_u65B9_u6CD5" class="headerlink" title="简单的记录git的使用方法"></a>简单的记录git的使用方法</h2><ol>
@@ -139,16 +139,16 @@
     <![CDATA[<h2 id="u7B80_u5355_u7684_u8BB0_u5F55git_u7684_u4F7F_u7528_u65B9_u6CD5"><a href="#u7B80_u5355_u7684_u8BB0_u5F55git_u7684_u4F7F_u7528_u65B9_u]]>
     </summary>
     
-      <category term="git" scheme="http://0.0.0.0/tags/git/"/>
+      <category term="git" scheme="http://pzengseu.github.io/tags/git/"/>
     
-      <category term="博客" scheme="http://0.0.0.0/categories/%E5%8D%9A%E5%AE%A2/"/>
+      <category term="博客" scheme="http://pzengseu.github.io/categories/%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[2015书单]]></title>
-    <link href="http://0.0.0.0/2016/01/17/2015%E9%98%85%E8%AF%BB%E5%A5%BD%E4%B9%A6/"/>
-    <id>http://0.0.0.0/2016/01/17/2015阅读好书/</id>
+    <link href="http://pzengseu.github.io/2016/01/17/2015%E9%98%85%E8%AF%BB%E5%A5%BD%E4%B9%A6/"/>
+    <id>http://pzengseu.github.io/2016/01/17/2015阅读好书/</id>
     <published>2016-01-17T01:26:55.000Z</published>
     <updated>2016-01-17T11:26:40.000Z</updated>
     <content type="html"><![CDATA[<h1 id="2015_u4E66_u5355"><a href="#2015_u4E66_u5355" class="headerlink" title="2015书单"></a>2015书单</h1><p>１．《活着》，余华．看完这本书是非常沉重的，有的时候活着比死去更痛苦，因为要承受的更多．</p>
@@ -201,13 +201,13 @@
     <![CDATA[<h1 id="2015_u4E66_u5355"><a href="#2015_u4E66_u5355" class="headerlink" title="2015书单"></a>2015书单</h1><p>１．《活着》，余华．看完这本书是非常沉重的，有的时候活着比死去更痛苦]]>
     </summary>
     
-      <category term="2015" scheme="http://0.0.0.0/tags/2015/"/>
+      <category term="2015" scheme="http://pzengseu.github.io/tags/2015/"/>
     
-      <category term="书单" scheme="http://0.0.0.0/tags/%E4%B9%A6%E5%8D%95/"/>
+      <category term="书单" scheme="http://pzengseu.github.io/tags/%E4%B9%A6%E5%8D%95/"/>
     
-      <category term="阅读" scheme="http://0.0.0.0/tags/%E9%98%85%E8%AF%BB/"/>
+      <category term="阅读" scheme="http://pzengseu.github.io/tags/%E9%98%85%E8%AF%BB/"/>
     
-      <category term="阅读" scheme="http://0.0.0.0/categories/%E9%98%85%E8%AF%BB/"/>
+      <category term="阅读" scheme="http://pzengseu.github.io/categories/%E9%98%85%E8%AF%BB/"/>
     
   </entry>
   
