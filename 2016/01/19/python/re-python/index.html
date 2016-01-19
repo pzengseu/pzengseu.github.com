@@ -1,0 +1,1012 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="python,正则表达式," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="zp's blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="根据python的re模块的帮助文档，简要总结python正则中常用的特殊字符，集合简写和正则表达式函数，最好的学习资料就是python自带文档。正则表达式的水很深，关键是要多实践。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅析python正则表达式一：基本概念">
+<meta property="og:url" content="http://pzengseu.github.io/2016/01/19/python/re-python/index.html">
+<meta property="og:site_name" content="zp's blog">
+<meta property="og:description" content="根据python的re模块的帮助文档，简要总结python正则中常用的特殊字符，集合简写和正则表达式函数，最好的学习资料就是python自带文档。正则表达式的水很深，关键是要多实践。">
+<meta property="og:updated_time" content="2016-01-19T15:48:31.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="浅析python正则表达式一：基本概念">
+<meta name="twitter:description" content="根据python的re模块的帮助文档，简要总结python正则中常用的特殊字符，集合简写和正则表达式函数，最好的学习资料就是python自带文档。正则表达式的水很深，关键是要多实践。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 浅析python正则表达式一：基本概念 | zp's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?b390596cfb63b2f45c318f07ba310fed";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">zp's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Reading, thinking and coding</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu menu-left">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+      
+        <li class="menu-item menu-item-search">
+          <a href="#" class="st-search-show-outputs">
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'FvTPkqn3_SS5N9RwxEvY','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                浅析python正则表达式一：基本概念
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-01-19T19:04:24+08:00" content="2016-01-19">
+              2016-01-19
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/01/19/python/re-python/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/19/python/re-python/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="u524D_u8A00"><a href="#u524D_u8A00" class="headerlink" title="前言"></a>前言</h2><p>断断续续花了一个多月把，hackerrank上关于python正则部分的题刷完了，对python正则表达式的认识达到了新的高度。写下博文记录一些python正则的技能点。</p>
+<h2 id="python_u6B63_u5219"><a href="#python_u6B63_u5219" class="headerlink" title="python正则"></a>python正则</h2><h4 id="u6982_u8FF0"><a href="#u6982_u8FF0" class="headerlink" title="概述"></a>概述</h4><p>在ipython中输入help(re)，查看正则模块re的帮组信息。</p>
+<h4 id="u7279_u6B8A_u5B57_u7B26"><a href="#u7279_u6B8A_u5B57_u7B26" class="headerlink" title="特殊字符"></a>特殊字符</h4><p>python正则中的特殊字符如下：<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">The special <span class="property">characters</span> are:</span><br><span class="line">    <span class="string">"."</span>      Matches any <span class="property">character</span> except a newline.</span><br><span class="line">    <span class="string">"^"</span>      Matches <span class="keyword">the</span> start <span class="keyword">of</span> <span class="keyword">the</span> <span class="type">string</span>.</span><br><span class="line">    <span class="string">"$"</span>      Matches <span class="keyword">the</span> <span class="keyword">end</span> <span class="keyword">of</span> <span class="keyword">the</span> <span class="type">string</span> <span class="keyword">or</span> just <span class="keyword">before</span> <span class="keyword">the</span> newline <span class="keyword">at</span></span><br><span class="line">             <span class="keyword">the</span> <span class="keyword">end</span> <span class="keyword">of</span> <span class="keyword">the</span> <span class="type">string</span>.</span><br><span class="line">    <span class="string">"*"</span>      Matches <span class="number">0</span> <span class="keyword">or</span> more (greedy) repetitions <span class="keyword">of</span> <span class="keyword">the</span> preceding RE.</span><br><span class="line">             Greedy means <span class="keyword">that</span> <span class="keyword">it</span> will match <span class="keyword">as</span> many repetitions <span class="keyword">as</span> possible.</span><br><span class="line">    <span class="string">"+"</span>      Matches <span class="number">1</span> <span class="keyword">or</span> more (greedy) repetitions <span class="keyword">of</span> <span class="keyword">the</span> preceding RE.</span><br><span class="line">    <span class="string">"?"</span>      Matches <span class="number">0</span> <span class="keyword">or</span> <span class="number">1</span> (greedy) <span class="keyword">of</span> <span class="keyword">the</span> preceding RE.</span><br><span class="line">    *?,+?,?? Non-greedy versions <span class="keyword">of</span> <span class="keyword">the</span> previous three special <span class="property">characters</span>.</span><br><span class="line">    &#123;m,n&#125;    Matches <span class="keyword">from</span> m <span class="keyword">to</span> n repetitions <span class="keyword">of</span> <span class="keyword">the</span> preceding RE.</span><br><span class="line">    &#123;m,n&#125;?   Non-greedy <span class="property">version</span> <span class="keyword">of</span> <span class="keyword">the</span> <span class="keyword">above</span>.</span><br><span class="line">    <span class="string">"\\"</span>     Either escapes special <span class="property">characters</span> <span class="keyword">or</span> signals a special sequence.</span><br><span class="line">    []       Indicates a <span class="keyword">set</span> <span class="keyword">of</span> <span class="property">characters</span>.</span><br><span class="line">             A <span class="string">"^"</span> <span class="keyword">as</span> <span class="keyword">the</span> <span class="keyword">first</span> <span class="property">character</span> indicates a complementing <span class="keyword">set</span>.</span><br><span class="line">    <span class="string">"|"</span>      A|B, creates an RE <span class="keyword">that</span> will match either A <span class="keyword">or</span> B.</span><br><span class="line">    (...)    Matches <span class="keyword">the</span> RE inside <span class="keyword">the</span> parentheses.</span><br><span class="line">             The <span class="property">contents</span> can be retrieved <span class="keyword">or</span> matched later <span class="keyword">in</span> <span class="keyword">the</span> <span class="type">string</span>.</span><br><span class="line">    (?iLmsux) Set <span class="keyword">the</span> I, L, M, S, U, <span class="keyword">or</span> X flag <span class="keyword">for</span> <span class="keyword">the</span> RE (see <span class="keyword">below</span>).</span><br><span class="line">    (?:...)  Non-grouping <span class="property">version</span> <span class="keyword">of</span> regular parentheses.</span><br><span class="line">    (?P&lt;<span class="property">name</span>&gt;...) The substring matched <span class="keyword">by</span> <span class="keyword">the</span> group <span class="keyword">is</span> accessible <span class="keyword">by</span> <span class="property">name</span>.</span><br><span class="line">    (?P=<span class="property">name</span>)     Matches <span class="keyword">the</span> <span class="type">text</span> matched earlier <span class="keyword">by</span> <span class="keyword">the</span> group named <span class="property">name</span>.</span><br><span class="line">    (?<span class="comment">#...)  A comment; ignored.</span></span><br><span class="line">    (?=...)  Matches <span class="keyword">if</span> ... matches next, <span class="keyword">but</span> doesn't consume <span class="keyword">the</span> <span class="type">string</span>.</span><br><span class="line">    (?!...)  Matches <span class="keyword">if</span> ... doesn't match next.</span><br><span class="line">    (?&lt;=...) Matches <span class="keyword">if</span> preceded <span class="keyword">by</span> ... (must be fixed <span class="property">length</span>).</span><br><span class="line">    (?&lt;!...) Matches <span class="keyword">if</span> <span class="keyword">not</span> preceded <span class="keyword">by</span> ... (must be fixed <span class="property">length</span>).</span><br><span class="line">    (?(<span class="property">id</span>/<span class="property">name</span>)yes|no) Matches yes pattern <span class="keyword">if</span> <span class="keyword">the</span> group <span class="keyword">with</span> <span class="property">id</span>/<span class="property">name</span> matched,</span><br><span class="line">                       <span class="keyword">the</span> (optional) no pattern otherwise.</span><br></pre></td></tr></table></figure></p>
+<p>总结如下：</p>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.</td>
+<td>匹配除了换行符的任意字符</td>
+</tr>
+<tr>
+<td>^</td>
+<td>字符串开头或<strong> 用在[]中表示不匹配某些字符 </strong></td>
+</tr>
+<tr>
+<td>$</td>
+<td>匹配模式的末尾</td>
+</tr>
+<tr>
+<td>*</td>
+<td>匹配任意多的字符</td>
+</tr>
+<tr>
+<td>+</td>
+<td>至少匹配一个字符</td>
+</tr>
+<tr>
+<td>?</td>
+<td>匹配０或一个字符</td>
+</tr>
+<tr>
+<td>{m,n}</td>
+<td>表示重复前面模式ｍ到ｎ次，可表达为{m},{m,},{m,n}</td>
+</tr>
+<tr>
+<td>[]</td>
+<td>字符集合</td>
+</tr>
+<tr>
+<td>()</td>
+<td>子模式</td>
+</tr>
+<tr>
+<td>｜</td>
+<td>模式或</td>
+</tr>
+</tbody>
+</table>
+<p>？字符在正则表达式中功能特别丰富，看<a href="/2016/01/19/python/re-interrogation/">浅析python正则表达式二：用好问好</a>。</p>
+<h4 id="u96C6_u5408_u7B80_u5199"><a href="#u96C6_u5408_u7B80_u5199" class="headerlink" title="集合简写"></a>集合简写</h4><p>查看re帮助文档，如下：<br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">\<span class="built_in">number</span>  Matches <span class="operator">the</span> contents <span class="operator">of</span> <span class="operator">the</span> group <span class="operator">of</span> <span class="operator">the</span> same <span class="built_in">number</span>.</span><br><span class="line">\A       Matches only <span class="keyword">at</span> <span class="operator">the</span> <span class="built_in">start</span> <span class="operator">of</span> <span class="operator">the</span> <span class="keyword">string</span>.</span><br><span class="line">\Z       Matches only <span class="keyword">at</span> <span class="operator">the</span> <span class="function"><span class="keyword">end</span> <span class="title">of</span> <span class="title">the</span> <span class="title">string</span>.</span></span><br><span class="line">\b       Matches <span class="operator">the</span> <span class="constant">empty</span> <span class="keyword">string</span>, but only <span class="keyword">at</span> <span class="operator">the</span> <span class="built_in">start</span> <span class="operator">or</span> <span class="function"><span class="keyword">end</span> <span class="title">of</span> <span class="title">a</span> <span class="title">word</span>.</span></span><br><span class="line">\B       Matches <span class="operator">the</span> <span class="constant">empty</span> <span class="keyword">string</span>, but <span class="operator">not</span> <span class="keyword">at</span> <span class="operator">the</span> <span class="built_in">start</span> <span class="operator">or</span> <span class="function"><span class="keyword">end</span> <span class="title">of</span> <span class="title">a</span> <span class="title">word</span>.</span></span><br><span class="line">\d       Matches <span class="keyword">any</span> decimal digit; equivalent <span class="built_in">to</span> <span class="operator">the</span> <span class="built_in">set</span> [<span class="number">0</span>-<span class="number">9</span>].</span><br><span class="line">\D       Matches <span class="keyword">any</span> non-digit <span class="keyword">character</span>; equivalent <span class="built_in">to</span> <span class="operator">the</span> <span class="built_in">set</span> [^<span class="number">0</span>-<span class="number">9</span>].</span><br><span class="line">\s       Matches <span class="keyword">any</span> whitespace <span class="keyword">character</span>; equivalent <span class="built_in">to</span> [ \t\n\r\f\v].</span><br><span class="line">\S       Matches <span class="keyword">any</span> non-whitespace <span class="keyword">character</span>; equiv. <span class="built_in">to</span> [^ \t\n\r\f\v].</span><br><span class="line">\w       Matches <span class="keyword">any</span> alphanumeric <span class="keyword">character</span>; equivalent <span class="built_in">to</span> [<span class="operator">a</span>-zA-Z0-<span class="number">9</span>_].</span><br><span class="line">         With LOCALE, <span class="keyword">it</span> will match <span class="operator">the</span> <span class="built_in">set</span> [<span class="number">0</span>-<span class="number">9</span>_] plus <span class="keyword">characters</span> defined</span><br><span class="line">         <span class="keyword">as</span> letters <span class="keyword">for</span> <span class="operator">the</span> current locale.</span><br><span class="line">\W       Matches <span class="operator">the</span> complement <span class="operator">of</span> \w.</span><br><span class="line">\\       Matches <span class="operator">a</span> literal <span class="constant">backslash</span>.</span><br></pre></td></tr></table></figure></p>
+<p>总结如下：</p>
+<table>
+<thead>
+<tr>
+<th>简写</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\number</td>
+<td>匹配模式组number</td>
+</tr>
+<tr>
+<td>\A</td>
+<td>等价于^</td>
+</tr>
+<tr>
+<td>\Z</td>
+<td>等价于$</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>单词开头匹配空字符串</td>
+</tr>
+<tr>
+<td>\B</td>
+<td>单词结尾匹配空字符串</td>
+</tr>
+<tr>
+<td>\d</td>
+<td>等价于[0-9]</td>
+</tr>
+<tr>
+<td>\D</td>
+<td>等价于[^0-9]</td>
+</tr>
+<tr>
+<td>\s</td>
+<td>等价于[ \t\n\r\f\v]</td>
+</tr>
+<tr>
+<td>\S</td>
+<td>等价于[^ \t\n\r\f\v]</td>
+</tr>
+<tr>
+<td>\w</td>
+<td>等价于[a-zA-Z0-9_]</td>
+</tr>
+<tr>
+<td>\W</td>
+<td>等价于[^a-zA-Z0-9_]</td>
+</tr>
+<tr>
+<td>\</td>
+<td>转义匹配\</td>
+</tr>
+</tbody>
+</table>
+<h5 id="u6709_u5173_5Cnumber_u7684_u7528_u6CD5"><a href="#u6709_u5173_5Cnumber_u7684_u7528_u6CD5" class="headerlink" title="有关\number的用法"></a>有关\number的用法</h5><p>在集合简写这一块中，比较难的的是\number的正确使用</p>
+<h5 id="u4F8B1_uFF1A_u67E5_u627E_u5B57_u7B26_u4E32_u4E2D_u662F_u5426_u6709_u5B57_u7B26_u91CD_u590D_u51FA_u73B0"><a href="#u4F8B1_uFF1A_u67E5_u627E_u5B57_u7B26_u4E32_u4E2D_u662F_u5426_u6709_u5B57_u7B26_u91CD_u590D_u51FA_u73B0" class="headerlink" title="例1：查找字符串中是否有字符重复出现"></a>例1：查找字符串中是否有字符重复出现</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">39</span>]: bool(re.search(<span class="string">r'(.).*\1'</span>,<span class="string">'asdfasjkdlk'</span>))</span><br><span class="line">Out[<span class="number">39</span>]: <span class="keyword">True</span></span><br></pre></td></tr></table></figure>
+<h5 id="u4F8B2_3A__u67E5_u627E_u5B57_u7B26_u4E32_u4E2D_u662F_u5426_u6709_u5B57_u7B26_u8FDE_u7EED_u51FA_u73B0_u56DB_u6B21"><a href="#u4F8B2_3A__u67E5_u627E_u5B57_u7B26_u4E32_u4E2D_u662F_u5426_u6709_u5B57_u7B26_u8FDE_u7EED_u51FA_u73B0_u56DB_u6B21" class="headerlink" title="例2: 查找字符串中是否有字符连续出现四次"></a>例2: 查找字符串中是否有字符连续出现四次</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">40</span>]: bool(re.search(<span class="string">r'(.)\1&#123;3&#125;'</span>,<span class="string">'asdfaaaasjkdlk'</span>))</span><br><span class="line">Out[<span class="number">40</span>]: <span class="keyword">True</span></span><br></pre></td></tr></table></figure>
+<p>上面两个例子中\1表示该处出现的字符或字符串与匹配组1的字符或字符串相同，这里是(.)</p>
+<h4 id="u6B63_u5219_u8868_u8FBE_u5F0F_u51FD_u6570"><a href="#u6B63_u5219_u8868_u8FBE_u5F0F_u51FD_u6570" class="headerlink" title="正则表达式函数"></a>正则表达式函数</h4><p>帮助文档如下：<br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">match    Match <span class="operator">a</span> regular expression pattern <span class="built_in">to</span> <span class="operator">the</span> beginning <span class="operator">of</span> <span class="operator">a</span> <span class="keyword">string</span>.</span><br><span class="line">search   Search <span class="operator">a</span> <span class="keyword">string</span> <span class="keyword">for</span> <span class="operator">the</span> presence <span class="operator">of</span> <span class="operator">a</span> pattern.</span><br><span class="line">sub      Substitute occurrences <span class="operator">of</span> <span class="operator">a</span> pattern found <span class="operator">in</span> <span class="operator">a</span> <span class="keyword">string</span>.</span><br><span class="line">subn     Same <span class="keyword">as</span> sub, but also <span class="constant">return</span> <span class="operator">the</span> <span class="built_in">number</span> <span class="operator">of</span> substitutions made.</span><br><span class="line"><span class="built_in">split</span>    Split <span class="operator">a</span> <span class="keyword">string</span> <span class="keyword">by</span> <span class="operator">the</span> occurrences <span class="operator">of</span> <span class="operator">a</span> pattern.</span><br><span class="line">findall  Find all occurrences <span class="operator">of</span> <span class="operator">a</span> pattern <span class="operator">in</span> <span class="operator">a</span> <span class="keyword">string</span>.</span><br><span class="line">finditer Return <span class="operator">an</span> iterator yielding <span class="operator">a</span> match object <span class="keyword">for</span> <span class="keyword">each</span> match.</span><br><span class="line">compile  Compile <span class="operator">a</span> pattern <span class="keyword">into</span> <span class="operator">a</span> RegexObject.</span><br><span class="line">purge    Clear <span class="operator">the</span> regular expression cache.</span><br><span class="line">escape   Backslash all non-alphanumerics <span class="operator">in</span> <span class="operator">a</span> <span class="keyword">string</span>.</span><br></pre></td></tr></table></figure></p>
+<p>总结常用函数如下：</p>
+<table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>用法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>match</td>
+<td>从字符串开头开始匹配</td>
+</tr>
+<tr>
+<td>search</td>
+<td>搜索与模式匹配的字符串</td>
+</tr>
+<tr>
+<td>sub</td>
+<td>替代匹配的字符串</td>
+</tr>
+<tr>
+<td>split</td>
+<td>更具模式分割字符串</td>
+</tr>
+<tr>
+<td>findall</td>
+<td>返回所有的模式匹配字符串</td>
+</tr>
+<tr>
+<td>finditer</td>
+<td>迭代返回match对象</td>
+</tr>
+<tr>
+<td>complie</td>
+<td>编译模式</td>
+</tr>
+<tr>
+<td>escape</td>
+<td>转义字符串中所有特殊字符，这样不用在字符串中写入讨厌的\符号</td>
+</tr>
+</tbody>
+</table>
+<p>正则表达式函数都有个参数flag,其中令flage=re.I，表示对大小写不敏感。</p>
+<h2 id="u603B_u7ED3"><a href="#u603B_u7ED3" class="headerlink" title="总结"></a>总结</h2><p>python正则表达式的基本概念也就这些，学习这些的最好资料是自带的帮助文档。</p>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag">#python</a>
+          
+            <a href="/tags/正则表达式/" rel="tag">#正则表达式</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/01/17/personal_blog/" rel="next" title="个人博客">
+                <i class="fa fa-chevron-left"></i> 个人博客
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/01/19/python/re-interrogation/" rel="prev" title="浅析python正则表达式二:用好问号">
+                浅析python正则表达式二:用好问号 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/01/19/python/re-python/"
+           data-title="浅析python正则表达式一：基本概念" data-url="http://pzengseu.github.io/2016/01/19/python/re-python/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="zpeng" />
+          <p class="site-author-name" itemprop="name">zpeng</p>
+          <p class="site-description motion-element" itemprop="description">非典型程序员</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/pzengseu" target="_blank">
+                  
+                    <i class="fa fa-github"></i> GitHub
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/ceng-peng-66" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> zhihu
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.hackerrank.com/zpeng" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> HarkerRank
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            <p class="site-author-name">以前的博客，放弃管理</p>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.sina.com.cn/u/2413914251" target="_blank">新浪博客</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.oschina.net/code/list_by_user?id=256373" target="_blank">oschina code</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://my.oschina.net/zpengseu/blog" target="_blank">oschina blog</a>
+              </span>
+            
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#u524D_u8A00"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python_u6B63_u5219"><span class="nav-number">2.</span> <span class="nav-text">python正则</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#u6982_u8FF0"><span class="nav-number">2.0.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u7279_u6B8A_u5B57_u7B26"><span class="nav-number">2.0.2.</span> <span class="nav-text">特殊字符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u96C6_u5408_u7B80_u5199"><span class="nav-number">2.0.3.</span> <span class="nav-text">集合简写</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#u6709_u5173_5Cnumber_u7684_u7528_u6CD5"><span class="nav-number">2.0.3.1.</span> <span class="nav-text">有关\number的用法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#u4F8B1_uFF1A_u67E5_u627E_u5B57_u7B26_u4E32_u4E2D_u662F_u5426_u6709_u5B57_u7B26_u91CD_u590D_u51FA_u73B0"><span class="nav-number">2.0.3.2.</span> <span class="nav-text">例1：查找字符串中是否有字符重复出现</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#u4F8B2_3A__u67E5_u627E_u5B57_u7B26_u4E32_u4E2D_u662F_u5426_u6709_u5B57_u7B26_u8FDE_u7EED_u51FA_u73B0_u56DB_u6B21"><span class="nav-number">2.0.3.3.</span> <span class="nav-text">例2: 查找字符串中是否有字符连续出现四次</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u6B63_u5219_u8868_u8FBE_u5F0F_u51FD_u6570"><span class="nav-number">2.0.4.</span> <span class="nav-text">正则表达式函数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u603B_u7ED3"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zpeng</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=0.5.0"></script>
+
+
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"pzeng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+
+</body>
+</html>
