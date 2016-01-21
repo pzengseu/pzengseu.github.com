@@ -284,7 +284,7 @@
     <link href="http://pzengseu.github.io/2016/01/18/read/1984/"/>
     <id>http://pzengseu.github.io/2016/01/18/read/1984/</id>
     <published>2016-01-18T13:24:13.000Z</published>
-    <updated>2016-01-21T14:32:50.000Z</updated>
+    <updated>2016-01-21T14:52:33.000Z</updated>
     <content type="html"><![CDATA[<h2 id="u524D_u8A00"><a href="#u524D_u8A00" class="headerlink" title="前言"></a>前言</h2><p>乔治·奥威尔是英国著名小说家，他的代表作《动物农场》和《一九八四》是反极权主义的经典。乔治·奥威尔毕生穷困潦倒，且英年早逝，他的这些作品，待他死后才得到大家的认可。初次写读书笔记，我自己都读不下了。</p>
 <h2 id="u52A8_u7269_u519C_u573A"><a href="#u52A8_u7269_u519C_u573A" class="headerlink" title="动物农场"></a>动物农场</h2><p>这本书篇幅不长，讲述了农场动物在人类极权的压迫下，在猪们的领导下，发动革命，建立农场新秩序，并发展成另一个极权农场的故事。<br>一头”老猪“临死前，鼓吹动物们要追求自由平等，要起来反抗，于是在几头猪的带领下，趁主人喝醉酒，发起革命取得成功，建立了所谓的民主新农场，并规定了七条戒律：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 凡用两条腿行走的都是敌人。</span><br><span class="line"><span class="number">2.</span> 凡四条腿行走或长翅膀的，都是朋友。</span><br><span class="line"><span class="number">3.</span> 凡动物都不可穿衣服。</span><br><span class="line"><span class="number">4.</span> 凡动物都不可睡床铺。</span><br><span class="line"><span class="number">5.</span> 凡动物都不可饮酒。</span><br><span class="line"><span class="number">6.</span> 凡动物都不可杀任何别的动物。</span><br><span class="line"><span class="number">7.</span> 凡动物一律平等。</span><br></pre></td></tr></table></figure></p>
 <p>这些最初的戒律确实体现了动物们建立的社会的民主性，但随着农场的发展，领导猪们开始不但以各种借口压迫其它动物干活，满足自己的私欲。猪们开始两天腿走路，开始穿衣服，开始睡床铺（没被单），开始饮酒，开始与人类进行贸易，甚至将忠于自己的动物卖给人类。就这样因为其它动物不识字，猪们不断破戒，并不断修改戒律，最后戒律该的面目全非，成了这个样子：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>+<span class="number">2.</span> 四条腿好，两条腿更好。</span><br><span class="line"><span class="number">3.</span> 猪也穿上了人类的衣服。</span><br><span class="line"><span class="number">4.</span> 凡动物都不可睡床铺被单。</span><br><span class="line"><span class="number">5.</span> 凡动物都不可饮酒过量。</span><br><span class="line"><span class="number">6.</span> 变成了残酷的同类的杀戮，甚至拳击手也没逃厄运。</span><br><span class="line"><span class="number">7.</span> 凡动物一律平等，但是有些动物比别的动物更加平等。</span><br></pre></td></tr></table></figure></p>
@@ -326,6 +326,8 @@
     <![CDATA[<h2 id="u524D_u8A00"><a href="#u524D_u8A00" class="headerlink" title="前言"></a>前言</h2><p>乔治·奥威尔是英国著名小说家，他的代表作《动物农场》和《一九八四》是反极权主义的经典。乔治·奥威尔毕生穷]]>
     </summary>
     
+      <category term="阅读" scheme="http://pzengseu.github.io/tags/%E9%98%85%E8%AF%BB/"/>
+    
       <category term="阅读" scheme="http://pzengseu.github.io/categories/%E9%98%85%E8%AF%BB/"/>
     
   </entry>
@@ -335,7 +337,7 @@
     <link href="http://pzengseu.github.io/2016/01/17/personal_blog/"/>
     <id>http://pzengseu.github.io/2016/01/17/personal_blog/</id>
     <published>2016-01-17T12:48:35.000Z</published>
-    <updated>2016-01-19T12:24:27.000Z</updated>
+    <updated>2016-01-21T14:49:14.000Z</updated>
     <content type="html"><![CDATA[<h1 id="u6211_u7684_u535A_u5BA2"><a href="#u6211_u7684_u535A_u5BA2" class="headerlink" title="我的博客"></a>我的博客</h1><h2 id="u4E3A_u4F55_u5199"><a href="#u4E3A_u4F55_u5199" class="headerlink" title="为何写"></a>为何写</h2><p>现在互联网上有各种博客，比如开源中国、CSDN、博客园等猿类聚集地，还有新浪博客这种大众博客。我用过新浪博客和开源中国的博客，但都不能让我满意，首先不喜欢它们的排版，其次猿类也该有自己的私人空间，一个可以自己管理内容的空间，而且我看大牛们都有自己的博客，渣渣得向大牛看齐！</p>
 <h2 id="u5982_u4F55_u5199"><a href="#u5982_u4F55_u5199" class="headerlink" title="如何写"></a>如何写</h2><p>以前我写文章写博客，基本都是用Word,vim甚至记事本，这写东西写起文章来真是难受。用Word要时刻注意文章的排版，用vim码字是很爽，但真不适合写文章，至于记事本，这是什么玩意！最近看到有<a href="https://en.wikipedia.org/wiki/Markdown" target="_blank" rel="external">Markdown</a>这个东西，看了几分钟就喜欢上它了，这个东西的语法很简单，却能写出有很好排版的东西，据说很多文字工作者都在用，我算时坐井观天了。推荐在线markdown工具,<a href="https://www.zybuluo.com/" target="_blank" rel="external">cmd markdown</a>,离线markdown编辑器<a href="http://pad.haroopress.com/" target="_blank" rel="external">haroopad</a>.</p>
 <h2 id="u600E_u4E48_u505A"><a href="#u600E_u4E48_u505A" class="headerlink" title="怎么做"></a>怎么做</h2><p>由于时间有限，且个人精力不是放在做网站上，所以选择现成的网站框架。这个博客是根据<a href="https://hexo.io" target="_blank" rel="external">hexo</a>和<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">hexo-theme-next</a>主题制作而成, hexo使用简单，几天简单的命令管理博客，大大提高了使用博客效率。然后将博客部署到<a href="https://pages.github.com" target="_blank" rel="external">github pages</a>上，然而github pages上的网站，国内访问速度较慢，且百度爬虫是爬不到的，所以我又将博客部署到了国内的<a href="https://gitcafe.com/" target="_blank" rel="external">gitcafe</a>上，速度立马起来了。<br>代码托管在github上：</p>
@@ -419,7 +421,7 @@
     <link href="http://pzengseu.github.io/2016/01/01/read/2016%E4%B9%A6%E5%8D%95/"/>
     <id>http://pzengseu.github.io/2016/01/01/read/2016书单/</id>
     <published>2016-01-01T11:50:14.000Z</published>
-    <updated>2016-01-20T12:31:25.000Z</updated>
+    <updated>2016-01-21T14:54:03.000Z</updated>
     <content type="html"><![CDATA[<h2 id="2016_u9605_u8BFB_u8BA1_u5212"><a href="#2016_u9605_u8BFB_u8BA1_u5212" class="headerlink" title="2016阅读计划"></a>2016阅读计划</h2><p>这是2016年的阅读计划，包括了一些<em>闲书</em>和专业书,打算每月至少稳定输出两本，目前打算读的书如下：</p>
 <h3 id="u6587_u5B66"><a href="#u6587_u5B66" class="headerlink" title="文学"></a>文学</h3><h4 id="u52A0_u897F_u4E9A_B7_u9A6C_u5C14_u514B_u65AF"><a href="#u52A0_u897F_u4E9A_B7_u9A6C_u5C14_u514B_u65AF" class="headerlink" title="加西亚·马尔克斯"></a>加西亚·马尔克斯</h4><ul>
 <li>霍乱时期的爱情</li>
@@ -431,7 +433,7 @@
 <li>千纸鹤</li>
 </ul>
 <h4 id="u5176_u5B83"><a href="#u5176_u5B83" class="headerlink" title="其它"></a>其它</h4><ul>
-<li>1984</li>
+<li>1984(done)</li>
 <li>不能承受生命之轻</li>
 <li>穆斯林的葬礼</li>
 <li>清明上河图密码</li>
@@ -459,8 +461,6 @@
     <![CDATA[<h2 id="2016_u9605_u8BFB_u8BA1_u5212"><a href="#2016_u9605_u8BFB_u8BA1_u5212" class="headerlink" title="2016阅读计划"></a>2016阅读计划</h2><p>这是2016]]>
     </summary>
     
-      <category term="2016" scheme="http://pzengseu.github.io/tags/2016/"/>
-    
       <category term="书单" scheme="http://pzengseu.github.io/tags/%E4%B9%A6%E5%8D%95/"/>
     
       <category term="阅读" scheme="http://pzengseu.github.io/tags/%E9%98%85%E8%AF%BB/"/>
@@ -474,7 +474,7 @@
     <link href="http://pzengseu.github.io/2015/12/31/read/2015%E9%98%85%E8%AF%BB%E5%A5%BD%E4%B9%A6/"/>
     <id>http://pzengseu.github.io/2015/12/31/read/2015阅读好书/</id>
     <published>2015-12-31T01:26:55.000Z</published>
-    <updated>2016-01-17T14:33:59.000Z</updated>
+    <updated>2016-01-21T14:50:09.000Z</updated>
     <content type="html"><![CDATA[<h1 id="2015_u4E66_u5355"><a href="#2015_u4E66_u5355" class="headerlink" title="2015书单"></a>2015书单</h1><p>１．《活着》，余华．看完这本书是非常沉重的，有的时候活着比死去更痛苦，因为要承受的更多．</p>
 <p>２．《许三观卖血记》，余华．同样非常沉重的一本书，许三观为了生活一次次卖血，结局却换来子女冷漠的态度，令人苦涩．</p>
 <p>３．《曾国藩传》，唐浩明．很好的一本人物传纪，比较全面的评价了曾国藩．PS:为官要学曾国藩，经商要学胡雪岩．</p>
@@ -524,8 +524,6 @@
     <summary type="html">
     <![CDATA[<h1 id="2015_u4E66_u5355"><a href="#2015_u4E66_u5355" class="headerlink" title="2015书单"></a>2015书单</h1><p>１．《活着》，余华．看完这本书是非常沉重的，有的时候活着比死去更痛苦]]>
     </summary>
-    
-      <category term="2015" scheme="http://pzengseu.github.io/tags/2015/"/>
     
       <category term="书单" scheme="http://pzengseu.github.io/tags/%E4%B9%A6%E5%8D%95/"/>
     
