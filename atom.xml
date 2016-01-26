@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Reading, thinking and coding]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://pzengseu.github.io/"/>
-  <updated>2016-01-26T01:55:08.000Z</updated>
+  <updated>2016-01-26T02:45:56.000Z</updated>
   <id>http://pzengseu.github.io/</id>
   
   <author>
@@ -15,17 +15,26 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
-    <link href="http://pzengseu.github.io/2016/01/26/seu-snow/"/>
-    <id>http://pzengseu.github.io/2016/01/26/seu-snow/</id>
-    <published>2016-01-26T01:55:09.000Z</published>
-    <updated>2016-01-26T01:55:08.000Z</updated>
-    <content type="html"><![CDATA[<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column" style="width: 100%;"><img src="/images/2016_SEU_SNOW/seu1.jpg" alt=""></div></div><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img src="/images/2016_SEU_SNOW/seu2.jpg" alt=""></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img src="/images/2016_SEU_SNOW/snow1.jpg" alt=""></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img src="/images/2016_SEU_SNOW/snow2.jpg" alt=""></div></div></div></div>
-<p><img src="/images/2016_SEU_SNOW/snow3.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow4.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow5.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow6.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow7.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow8.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow9.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow10.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow11.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow12.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow13.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow14.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow15.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow16.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow17.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow18.jpg" alt=""></p>
+    <title><![CDATA[雪景雪人]]></title>
+    <link href="http://pzengseu.github.io/2016/02/26/seu-snow/"/>
+    <id>http://pzengseu.github.io/2016/02/26/seu-snow/</id>
+    <published>2016-02-26T02:05:25.000Z</published>
+    <updated>2016-01-26T02:45:56.000Z</updated>
+    <content type="html"><![CDATA[<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column" style="width: 100%;"><img src="/images/2016_SEU_SNOW/seu2.jpg" alt=""></div></div><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img src="/images/2016_SEU_SNOW/snow1.jpg" alt=""></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img src="/images/2016_SEU_SNOW/snow2.jpg" alt=""></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img src="/images/2016_SEU_SNOW/snow3.jpg" alt=""></div></div></div></div>
+<p><img src="/images/2016_SEU_SNOW/snow4.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow5.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow6.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow7.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow8.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow9.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow10.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow11.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow12.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow13.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow14.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow15.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow16.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow17.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow18.jpg" alt=""></p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="http://music.163.com/outchain/player?type=3&id=15947072&auto=1&height=66"></iframe>
 ]]></content>
     <summary type="html">
     <![CDATA[<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column" style="widt]]>
     </summary>
+    
+      <category term="seu" scheme="http://pzengseu.github.io/tags/seu/"/>
+    
+      <category term="snow" scheme="http://pzengseu.github.io/tags/snow/"/>
+    
+      <category term="相册" scheme="http://pzengseu.github.io/tags/%E7%9B%B8%E5%86%8C/"/>
+    
+      <category term="生活" scheme="http://pzengseu.github.io/categories/%E7%94%9F%E6%B4%BB/"/>
     
   </entry>
   
@@ -34,7 +43,7 @@
     <link href="http://pzengseu.github.io/2016/01/25/python/rest-to-json/"/>
     <id>http://pzengseu.github.io/2016/01/25/python/rest-to-json/</id>
     <published>2016-01-25T06:12:32.000Z</published>
-    <updated>2016-01-25T06:38:56.000Z</updated>
+    <updated>2016-01-26T02:15:24.000Z</updated>
     <content type="html"><![CDATA[<h2 id="u524D_u8A00"><a href="#u524D_u8A00" class="headerlink" title="前言"></a>前言</h2><p>在使用RYU控制器的Rest api时,在命令行中输入curl xxxxxxx将返回一行json数据,这样的数据可读性很差.于是,出现了chrome, firefox的rest api插件,但这需要打开浏览器,对于我这样”All in terminal” 的猿类,简直是种折磨,于是写了个python脚本,将curl获取的数据通过管道导向python脚本,进而格式化输出.</p>
 <h2 id="u5B9E_u73B0"><a href="#u5B9E_u73B0" class="headerlink" title="实现"></a>实现</h2><h3 id="fileinput_u6A21_u5757"><a href="#fileinput_u6A21_u5757" class="headerlink" title="fileinput模块"></a>fileinput模块</h3><p>调用fileinput模块,使用管道将数据导向python脚本:</p>
 <blockquote>
@@ -65,7 +74,7 @@
     
       <category term="ryu" scheme="http://pzengseu.github.io/tags/ryu/"/>
     
-      <category term="python" scheme="http://pzengseu.github.io/categories/python/"/>
+      <category term="技术" scheme="http://pzengseu.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
     
   </entry>
   
@@ -74,7 +83,7 @@
     <link href="http://pzengseu.github.io/2016/01/25/python/script-input-python/"/>
     <id>http://pzengseu.github.io/2016/01/25/python/script-input-python/</id>
     <published>2016-01-25T03:09:03.000Z</published>
-    <updated>2016-01-25T06:11:36.000Z</updated>
+    <updated>2016-01-26T02:15:47.000Z</updated>
     <content type="html"><![CDATA[<h2 id="u524D_u8A00"><a href="#u524D_u8A00" class="headerlink" title="前言"></a>前言</h2><p>想把python替代shell脚本,避免不了的问题是,在命令行中结合python脚本使用重定向,管道作为输入.</p>
 <h2 id="u65B9_u6848"><a href="#u65B9_u6848" class="headerlink" title="方案"></a>方案</h2><p>python内置fileinput模块可以解决这个问题,如下脚本:<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env <span class="keyword">python3</span></span><br><span class="line">import fileinput</span><br><span class="line"></span><br><span class="line">with fileinput.<span class="built_in">input</span>() <span class="keyword">as</span> f_inpu<span class="variable">t:</span></span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">line</span> in f_inpu<span class="variable">t:</span></span><br><span class="line">        <span class="keyword">print</span>(<span class="built_in">line</span>, end=<span class="string">''</span>)</span><br></pre></td></tr></table></figure></p>
 <p>运行结果如下:<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">zp@zpen<span class="variable">g:</span>~/PycharmProjects/script$ <span class="keyword">ls</span> ~ | <span class="keyword">python3</span> filein.<span class="keyword">py</span> </span><br><span class="line">app Desktop Documents Downloads hexo_zp_next mnt Music node_modules npm-<span class="keyword">debug</span>.<span class="built_in">log</span> Pictures Public PycharmProjects software Templates tmp Videos vmware 流量牵引.docx </span><br><span class="line">zp@zpen<span class="variable">g:</span>~/PycharmProjects/script$ <span class="keyword">python3</span> filein.<span class="keyword">py</span> &lt; filein.<span class="keyword">py</span> </span><br><span class="line">#!/usr/bin/env <span class="keyword">python3</span> import fileinput  with fileinput.<span class="built_in">input</span>() <span class="keyword">as</span> f_inpu<span class="variable">t:</span> <span class="keyword">for</span> <span class="built_in">line</span> in f_inpu<span class="variable">t:</span> <span class="keyword">print</span>(<span class="built_in">line</span>.strip(), end=<span class="string">' '</span>) <span class="keyword">print</span>() </span><br><span class="line">zp@zpen<span class="variable">g:</span>~/PycharmProjects/script$</span><br></pre></td></tr></table></figure></p>
@@ -88,7 +97,7 @@
     
       <category term="shell" scheme="http://pzengseu.github.io/tags/shell/"/>
     
-      <category term="python" scheme="http://pzengseu.github.io/categories/python/"/>
+      <category term="技术" scheme="http://pzengseu.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
     
   </entry>
   
@@ -97,7 +106,7 @@
     <link href="http://pzengseu.github.io/2016/01/24/SDN/ryu-firewall/"/>
     <id>http://pzengseu.github.io/2016/01/24/SDN/ryu-firewall/</id>
     <published>2016-01-24T07:33:57.000Z</published>
-    <updated>2016-01-24T14:53:55.000Z</updated>
+    <updated>2016-01-26T02:16:25.000Z</updated>
     <content type="html"><![CDATA[<h2 id="u6982_u8981"><a href="#u6982_u8981" class="headerlink" title="概要"></a>概要</h2><p>本篇博文根据RYU控制的官方文档<em>RYU book</em>第九章<em>FIREWALL</em>,第一部分<em>Example of operation of a single tenant(IPv4)</em>形成,其余三部分大同小异.按照文档上的内容进行实践,并说明了实践过程中存在的问题,指出了文档中不合理的地方.以下所有的rest api的调用都是在firefox上利用restclient插件进行,这样比直接调用curl命令更加直观.</p>
 <h2 id="A_single_tenant_28iPv4_29"><a href="#A_single_tenant_28iPv4_29" class="headerlink" title="A single tenant(iPv4)"></a>A single tenant(iPv4)</h2><h3 id="u5B9E_u9A8C_u62D3_u6251"><a href="#u5B9E_u9A8C_u62D3_u6251" class="headerlink" title="实验拓扑"></a>实验拓扑</h3><p><img src="/images/SDN/firewall1.png" alt="art"></p>
 <h3 id="u521B_u5EFA_u5B9E_u9A8C_u73AF_u5883"><a href="#u521B_u5EFA_u5B9E_u9A8C_u73AF_u5883" class="headerlink" title="创建实验环境"></a>创建实验环境</h3><h4 id="mininet_u521B_u5EFA_u62D3_u6251"><a href="#mininet_u521B_u5EFA_u62D3_u6251" class="headerlink" title="mininet创建拓扑"></a>mininet创建拓扑</h4><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">mininet<span class="comment">@mininet-vm:~$ sudo mn --topo single,3 --mac --controller=remote</span></span><br><span class="line"><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span> Creating network</span><br><span class="line"><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span> Adding controller</span><br><span class="line">Unable to contact the remote controller at 127.0.0.1:6633</span><br><span class="line"><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span> Adding hosts:</span><br><span class="line">h1 h2 h3 </span><br><span class="line"><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span> Adding switches:</span><br><span class="line">s1 </span><br><span class="line"><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span> Adding links:</span><br><span class="line">(h1, s1) (h2, s1) (h3, s1) </span><br><span class="line"><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span> Configuring hosts</span><br><span class="line">h1 h2 h3 </span><br><span class="line"><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span> Starting controller</span><br><span class="line">c0 </span><br><span class="line"><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span> Starting 1 switches</span><br><span class="line">s1 ...</span><br><span class="line"><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span> Starting CLI:</span><br><span class="line">mininet&gt;</span><br></pre></td></tr></table></figure>
@@ -156,7 +165,7 @@
     
       <category term="sdn" scheme="http://pzengseu.github.io/tags/sdn/"/>
     
-      <category term="SDN" scheme="http://pzengseu.github.io/categories/SDN/"/>
+      <category term="技术" scheme="http://pzengseu.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
     
   </entry>
   
@@ -165,7 +174,7 @@
     <link href="http://pzengseu.github.io/2016/01/19/python/re-interrogation/"/>
     <id>http://pzengseu.github.io/2016/01/19/python/re-interrogation/</id>
     <published>2016-01-19T13:47:33.000Z</published>
-    <updated>2016-01-20T07:08:15.000Z</updated>
+    <updated>2016-01-26T02:15:34.000Z</updated>
     <content type="html"><![CDATA[<h3 id="u6700_u539F_u59CB_u7528_u6CD5"><a href="#u6700_u539F_u59CB_u7528_u6CD5" class="headerlink" title="最原始用法"></a>最原始用法</h3><p>“?”最原始的用法是匹配或不匹配前面的模式，这个不必多说。</p>
 <h3 id="u95EE_u53F7_u8F6C_u4E49"><a href="#u95EE_u53F7_u8F6C_u4E49" class="headerlink" title="问号转义"></a>问号转义</h3><p>由于问号的特殊含义，若要在字符串中匹配字符’?’,要加上转义符，即’\?’</p>
 <h3 id="u8D2A_u5A6A_u6A21_u5F0F"><a href="#u8D2A_u5A6A_u6A21_u5F0F" class="headerlink" title="贪婪模式"></a>贪婪模式</h3><p>在查看re的帮助文档时，能看到：<br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"*"</span>      Matches <span class="number">0</span> <span class="operator">or</span> more (greedy) repetitions <span class="operator">of</span> <span class="operator">the</span> preceding RE.</span><br><span class="line">     	 Greedy means that <span class="keyword">it</span> will match <span class="keyword">as</span> many repetitions <span class="keyword">as</span> possible.</span><br><span class="line"><span class="string">"+"</span>      Matches <span class="number">1</span> <span class="operator">or</span> more (greedy) repetitions <span class="operator">of</span> <span class="operator">the</span> preceding RE.</span><br><span class="line"><span class="string">"?"</span>      Matches <span class="number">0</span> <span class="operator">or</span> <span class="number">1</span> (greedy) <span class="operator">of</span> <span class="operator">the</span> preceding RE.</span><br><span class="line">*?,+?,?? Non-greedy versions <span class="operator">of</span> <span class="operator">the</span> previous <span class="constant">three</span> special <span class="keyword">characters</span>.</span><br><span class="line">&#123;m,n&#125;?   Non-greedy <span class="built_in">version</span> <span class="operator">of</span> <span class="operator">the</span> above.</span><br></pre></td></tr></table></figure></p>
@@ -236,7 +245,7 @@
     
       <category term="正则表达式" scheme="http://pzengseu.github.io/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
     
-      <category term="python" scheme="http://pzengseu.github.io/categories/python/"/>
+      <category term="技术" scheme="http://pzengseu.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
     
   </entry>
   
@@ -245,7 +254,7 @@
     <link href="http://pzengseu.github.io/2016/01/19/python/re-python/"/>
     <id>http://pzengseu.github.io/2016/01/19/python/re-python/</id>
     <published>2016-01-19T11:04:24.000Z</published>
-    <updated>2016-01-20T06:59:17.000Z</updated>
+    <updated>2016-01-26T02:15:08.000Z</updated>
     <content type="html"><![CDATA[<h2 id="u524D_u8A00"><a href="#u524D_u8A00" class="headerlink" title="前言"></a>前言</h2><p>断断续续花了一个多月，把hackerrank上关于python正则部分的题刷完了，对python正则表达式的认识达到了新的高度。写下博文记录一些python正则的技能点。</p>
 <h2 id="python_u6B63_u5219"><a href="#python_u6B63_u5219" class="headerlink" title="python正则"></a>python正则</h2><h4 id="u6982_u8FF0"><a href="#u6982_u8FF0" class="headerlink" title="概述"></a>概述</h4><p>在ipython中输入help(re)，查看正则模块re的帮组信息。</p>
 <h4 id="u7279_u6B8A_u5B57_u7B26"><a href="#u7279_u6B8A_u5B57_u7B26" class="headerlink" title="特殊字符"></a>特殊字符</h4><p>python正则中的特殊字符如下：<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">The special <span class="property">characters</span> are:</span><br><span class="line">    <span class="string">"."</span>      Matches any <span class="property">character</span> except a newline.</span><br><span class="line">    <span class="string">"^"</span>      Matches <span class="keyword">the</span> start <span class="keyword">of</span> <span class="keyword">the</span> <span class="type">string</span>.</span><br><span class="line">    <span class="string">"$"</span>      Matches <span class="keyword">the</span> <span class="keyword">end</span> <span class="keyword">of</span> <span class="keyword">the</span> <span class="type">string</span> <span class="keyword">or</span> just <span class="keyword">before</span> <span class="keyword">the</span> newline <span class="keyword">at</span></span><br><span class="line">             <span class="keyword">the</span> <span class="keyword">end</span> <span class="keyword">of</span> <span class="keyword">the</span> <span class="type">string</span>.</span><br><span class="line">    <span class="string">"*"</span>      Matches <span class="number">0</span> <span class="keyword">or</span> more (greedy) repetitions <span class="keyword">of</span> <span class="keyword">the</span> preceding RE.</span><br><span class="line">             Greedy means <span class="keyword">that</span> <span class="keyword">it</span> will match <span class="keyword">as</span> many repetitions <span class="keyword">as</span> possible.</span><br><span class="line">    <span class="string">"+"</span>      Matches <span class="number">1</span> <span class="keyword">or</span> more (greedy) repetitions <span class="keyword">of</span> <span class="keyword">the</span> preceding RE.</span><br><span class="line">    <span class="string">"?"</span>      Matches <span class="number">0</span> <span class="keyword">or</span> <span class="number">1</span> (greedy) <span class="keyword">of</span> <span class="keyword">the</span> preceding RE.</span><br><span class="line">    *?,+?,?? Non-greedy versions <span class="keyword">of</span> <span class="keyword">the</span> previous three special <span class="property">characters</span>.</span><br><span class="line">    &#123;m,n&#125;    Matches <span class="keyword">from</span> m <span class="keyword">to</span> n repetitions <span class="keyword">of</span> <span class="keyword">the</span> preceding RE.</span><br><span class="line">    &#123;m,n&#125;?   Non-greedy <span class="property">version</span> <span class="keyword">of</span> <span class="keyword">the</span> <span class="keyword">above</span>.</span><br><span class="line">    <span class="string">"\\"</span>     Either escapes special <span class="property">characters</span> <span class="keyword">or</span> signals a special sequence.</span><br><span class="line">    []       Indicates a <span class="keyword">set</span> <span class="keyword">of</span> <span class="property">characters</span>.</span><br><span class="line">             A <span class="string">"^"</span> <span class="keyword">as</span> <span class="keyword">the</span> <span class="keyword">first</span> <span class="property">character</span> indicates a complementing <span class="keyword">set</span>.</span><br><span class="line">    <span class="string">"|"</span>      A|B, creates an RE <span class="keyword">that</span> will match either A <span class="keyword">or</span> B.</span><br><span class="line">    (...)    Matches <span class="keyword">the</span> RE inside <span class="keyword">the</span> parentheses.</span><br><span class="line">             The <span class="property">contents</span> can be retrieved <span class="keyword">or</span> matched later <span class="keyword">in</span> <span class="keyword">the</span> <span class="type">string</span>.</span><br><span class="line">    (?iLmsux) Set <span class="keyword">the</span> I, L, M, S, U, <span class="keyword">or</span> X flag <span class="keyword">for</span> <span class="keyword">the</span> RE (see <span class="keyword">below</span>).</span><br><span class="line">    (?:...)  Non-grouping <span class="property">version</span> <span class="keyword">of</span> regular parentheses.</span><br><span class="line">    (?P&lt;<span class="property">name</span>&gt;...) The substring matched <span class="keyword">by</span> <span class="keyword">the</span> group <span class="keyword">is</span> accessible <span class="keyword">by</span> <span class="property">name</span>.</span><br><span class="line">    (?P=<span class="property">name</span>)     Matches <span class="keyword">the</span> <span class="type">text</span> matched earlier <span class="keyword">by</span> <span class="keyword">the</span> group named <span class="property">name</span>.</span><br><span class="line">    (?<span class="comment">#...)  A comment; ignored.</span></span><br><span class="line">    (?=...)  Matches <span class="keyword">if</span> ... matches next, <span class="keyword">but</span> doesn't consume <span class="keyword">the</span> <span class="type">string</span>.</span><br><span class="line">    (?!...)  Matches <span class="keyword">if</span> ... doesn't match next.</span><br><span class="line">    (?&lt;=...) Matches <span class="keyword">if</span> preceded <span class="keyword">by</span> ... (must be fixed <span class="property">length</span>).</span><br><span class="line">    (?&lt;!...) Matches <span class="keyword">if</span> <span class="keyword">not</span> preceded <span class="keyword">by</span> ... (must be fixed <span class="property">length</span>).</span><br><span class="line">    (?(<span class="property">id</span>/<span class="property">name</span>)yes|no) Matches yes pattern <span class="keyword">if</span> <span class="keyword">the</span> group <span class="keyword">with</span> <span class="property">id</span>/<span class="property">name</span> matched,</span><br><span class="line">                       <span class="keyword">the</span> (optional) no pattern otherwise.</span><br></pre></td></tr></table></figure></p>
@@ -421,7 +430,7 @@
     
       <category term="正则表达式" scheme="http://pzengseu.github.io/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
     
-      <category term="python" scheme="http://pzengseu.github.io/categories/python/"/>
+      <category term="技术" scheme="http://pzengseu.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
     
   </entry>
   
@@ -483,7 +492,7 @@
     <link href="http://pzengseu.github.io/2016/01/17/personal_blog/"/>
     <id>http://pzengseu.github.io/2016/01/17/personal_blog/</id>
     <published>2016-01-17T12:48:35.000Z</published>
-    <updated>2016-01-21T14:49:14.000Z</updated>
+    <updated>2016-01-26T02:14:28.000Z</updated>
     <content type="html"><![CDATA[<h1 id="u6211_u7684_u535A_u5BA2"><a href="#u6211_u7684_u535A_u5BA2" class="headerlink" title="我的博客"></a>我的博客</h1><h2 id="u4E3A_u4F55_u5199"><a href="#u4E3A_u4F55_u5199" class="headerlink" title="为何写"></a>为何写</h2><p>现在互联网上有各种博客，比如开源中国、CSDN、博客园等猿类聚集地，还有新浪博客这种大众博客。我用过新浪博客和开源中国的博客，但都不能让我满意，首先不喜欢它们的排版，其次猿类也该有自己的私人空间，一个可以自己管理内容的空间，而且我看大牛们都有自己的博客，渣渣得向大牛看齐！</p>
 <h2 id="u5982_u4F55_u5199"><a href="#u5982_u4F55_u5199" class="headerlink" title="如何写"></a>如何写</h2><p>以前我写文章写博客，基本都是用Word,vim甚至记事本，这写东西写起文章来真是难受。用Word要时刻注意文章的排版，用vim码字是很爽，但真不适合写文章，至于记事本，这是什么玩意！最近看到有<a href="https://en.wikipedia.org/wiki/Markdown" target="_blank" rel="external">Markdown</a>这个东西，看了几分钟就喜欢上它了，这个东西的语法很简单，却能写出有很好排版的东西，据说很多文字工作者都在用，我算时坐井观天了。推荐在线markdown工具,<a href="https://www.zybuluo.com/" target="_blank" rel="external">cmd markdown</a>,离线markdown编辑器<a href="http://pad.haroopress.com/" target="_blank" rel="external">haroopad</a>.</p>
 <h2 id="u600E_u4E48_u505A"><a href="#u600E_u4E48_u505A" class="headerlink" title="怎么做"></a>怎么做</h2><p>由于时间有限，且个人精力不是放在做网站上，所以选择现成的网站框架。这个博客是根据<a href="https://hexo.io" target="_blank" rel="external">hexo</a>和<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">hexo-theme-next</a>主题制作而成, hexo使用简单，几天简单的命令管理博客，大大提高了使用博客效率。然后将博客部署到<a href="https://pages.github.com" target="_blank" rel="external">github pages</a>上，然而github pages上的网站，国内访问速度较慢，且百度爬虫是爬不到的，所以我又将博客部署到了国内的<a href="https://gitcafe.com/" target="_blank" rel="external">gitcafe</a>上，速度立马起来了。<br>代码托管在github上：</p>
@@ -507,7 +516,7 @@
     
       <category term="next" scheme="http://pzengseu.github.io/tags/next/"/>
     
-      <category term="博客" scheme="http://pzengseu.github.io/categories/%E5%8D%9A%E5%AE%A2/"/>
+      <category term="技术" scheme="http://pzengseu.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
     
   </entry>
   
@@ -516,7 +525,7 @@
     <link href="http://pzengseu.github.io/2016/01/17/other/git%E7%AE%80%E5%8D%95%E8%AE%B0%E5%BD%95/"/>
     <id>http://pzengseu.github.io/2016/01/17/other/git简单记录/</id>
     <published>2016-01-17T11:36:24.000Z</published>
-    <updated>2016-01-19T11:02:49.000Z</updated>
+    <updated>2016-01-26T02:13:56.000Z</updated>
     <content type="html"><![CDATA[<h2 id="u7B80_u5355_u7684_u8BB0_u5F55git_u7684_u4F7F_u7528_u65B9_u6CD5"><a href="#u7B80_u5355_u7684_u8BB0_u5F55git_u7684_u4F7F_u7528_u65B9_u6CD5" class="headerlink" title="简单的记录git的使用方法"></a>简单的记录git的使用方法</h2><ol>
 <li><p>初始化git, git init</p>
 </li>
@@ -558,7 +567,7 @@
     
       <category term="git" scheme="http://pzengseu.github.io/tags/git/"/>
     
-      <category term="其它" scheme="http://pzengseu.github.io/categories/%E5%85%B6%E5%AE%83/"/>
+      <category term="技术" scheme="http://pzengseu.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
     
   </entry>
   
