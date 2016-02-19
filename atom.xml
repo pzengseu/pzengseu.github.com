@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Reading, thinking and coding]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://pzengseu.github.io/"/>
-  <updated>2016-01-26T03:18:41.000Z</updated>
+  <updated>2016-02-19T07:08:31.000Z</updated>
   <id>http://pzengseu.github.io/</id>
   
   <author>
@@ -15,16 +15,47 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[python数据分析与挖掘实战的一些bug]]></title>
+    <link href="http://pzengseu.github.io/2016/02/19/data_mining/python-data-mining-error/"/>
+    <id>http://pzengseu.github.io/2016/02/19/data_mining/python-data-mining-error/</id>
+    <published>2016-02-19T07:01:05.000Z</published>
+    <updated>2016-02-19T07:08:31.000Z</updated>
+    <content type="html"><![CDATA[<p>总结学习＜python数据分析与挖掘实战＞碰到的一些问题，这些问题主要是书中的不足之处或程序的bug.<br><a id="more"></a></p>
+<h3 id="pandas_u8BFB_u53D6excel_u6587_u4EF6"><a href="#pandas_u8BFB_u53D6excel_u6587_u4EF6" class="headerlink" title="pandas读取excel文件"></a>pandas读取excel文件</h3><p>书上P36页读取EXCEL文件是这样的(第一次出现在P27)</p>
+<p><code>data = pd.read_excel(catering_sale, index_col = u&#39;日期&#39;)</code><br>这会报错：<br><code>TypeError: read_excel() takes exactly 2 arguments (1 given)</code><br>于是查看read_excel函数的定义：<br><code>def read_excel(io, sheetname, **kwds):</code><br>需要两个参数，而io, sheetname是这样定义的<br><figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">io : <span class="keyword">string</span>, <span class="keyword">file</span>-like <span class="keyword">object</span> <span class="keyword">or</span> xlrd workbook</span><br><span class="line">    <span class="keyword">If</span> a <span class="keyword">string</span>, expected <span class="keyword">to</span> be a path <span class="keyword">to</span> xls <span class="keyword">or</span> xlsx <span class="keyword">file</span></span><br><span class="line">sheetname : <span class="keyword">string</span></span><br><span class="line">     Name <span class="keyword">of</span> Excel sheet</span><br></pre></td></tr></table></figure></p>
+<p>于是，我这样写：<br><code>data = pd.read_excel(catering_sale, sheetname=&#39;catering_sale&#39;, index_col = u&#39;日期&#39;)</code><br>报错找不到表名,后来在stack overflow上才知道这是pandas　api变动，要令sheetname=0,于是改成这样：<br><code>data = pd.read_excel(catering_sale, sheetname=0, index_col = u&#39;日期&#39;)</code><br>通过，书中的这个bug,浪费了我好多时间．</p>
+<h3 id="matplotlib_u753B_u56FE_u4E2D_u6587_u5B57_u4F53"><a href="#matplotlib_u753B_u56FE_u4E2D_u6587_u5B57_u4F53" class="headerlink" title="matplotlib画图中文字体"></a>matplotlib画图中文字体</h3><p>书中中文字体是这样说的P26<br><code>plt.rcParams[&#39;font.sans-serif&#39;] = [&#39;SimHei&#39;]</code><br>这个在Windows上有没有用不知道，但在本人的ubuntu上，是没有效果的,还报错找不到sans-serif字体．对于这个问题，找遍goole终于成功解决．参考文章<a href="http://www.cnblogs.com/skabyy/p/3461229.html" target="_blank" rel="external">Ubuntu下matplotlib的中文显示</a></p>
+<h4 id="u4FEE_u6539/etc/matplotlib"><a href="#u4FEE_u6539/etc/matplotlib" class="headerlink" title="修改/etc/matplotlib"></a>修改/etc/matplotlib</h4><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">font</span><span class="class">.family</span>: sans-serif</span><br><span class="line"><span class="attribute">font</span><span class="class">.sans-serif</span>: WenQuanYi Micro Hei, Bitstream Vera Sans, Lucida Grande, Verdana, Geneva, Lucid, Arial, Helvetica, Avant Garde, sans-serif</span><br></pre></td></tr></table></figure>
+<p>添加wqy字体，前提是先安装wqy字体．</p>
+<h4 id="u6E05_u7A7A_u5B57_u4F53_u7F13_u5B58"><a href="#u6E05_u7A7A_u5B57_u4F53_u7F13_u5B58" class="headerlink" title="清空字体缓存"></a>清空字体缓存</h4><p>若不清空，不会有效果．<br><code>rm ~/.cache/matplotlib/</code></p>
+<h4 id="u5B57_u4F53_u6587_u4EF6_u540E_u7F00"><a href="#u5B57_u4F53_u6587_u4EF6_u540E_u7F00" class="headerlink" title="字体文件后缀"></a>字体文件后缀</h4><p>由于matplotlib查找系统字体的时候不匹配ttc字体文件，所以：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd <span class="regexp">/usr/</span>share<span class="regexp">/fonts/</span>truetype/wqy</span><br><span class="line">cp wqymicrohei.ttc wqymicrohei.ttf</span><br></pre></td></tr></table></figure></p>
+<p>重新运行程序，中文字体显示成功.</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="http://music.163.com/outchain/player?type=3&id=15947072&auto=1&height=66"></iframe>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>总结学习＜python数据分析与挖掘实战＞碰到的一些问题，这些问题主要是书中的不足之处或程序的bug.<br>]]>
+    
+    </summary>
+    
+      <category term="data-mining" scheme="http://pzengseu.github.io/tags/data-mining/"/>
+    
+      <category term="python" scheme="http://pzengseu.github.io/tags/python/"/>
+    
+      <category term="技术" scheme="http://pzengseu.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[雪景雪人]]></title>
     <link href="http://pzengseu.github.io/2016/01/26/seu-snow/"/>
     <id>http://pzengseu.github.io/2016/01/26/seu-snow/</id>
     <published>2016-01-26T02:05:25.000Z</published>
-    <updated>2016-01-26T03:18:41.000Z</updated>
-    <content type="html"><![CDATA[<p><img src="/images/2016_SEU_SNOW/seu1.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow1.jpg" alt=""><br><a id="more"></a><br><img src="/images/2016_SEU_SNOW/seu2.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow2.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow3.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow4.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow5.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow6.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow7.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow8.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow9.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow10.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow11.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow12.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow13.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow14.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow15.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow16.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow17.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow18.jpg" alt=""></p>
+    <updated>2016-02-19T07:06:24.000Z</updated>
+    <content type="html"><![CDATA[<p><img src="/images/2016_SEU_SNOW/seu1.jpg" alt=""><br><a id="more"></a><br><img src="/images/2016_SEU_SNOW/seu2.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow1.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow2.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow3.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow4.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow5.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow6.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow7.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow8.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow9.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow10.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow11.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow12.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow13.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow14.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow15.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow16.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow17.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow18.jpg" alt=""></p>
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="http://music.163.com/outchain/player?type=3&id=15947072&auto=1&height=66"></iframe>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p><img src="/images/2016_SEU_SNOW/seu1.jpg" alt=""><br><img src="/images/2016_SEU_SNOW/snow1.jpg" alt=""><br>]]>
+    <![CDATA[<p><img src="/images/2016_SEU_SNOW/seu1.jpg" alt=""><br>]]>
     
     </summary>
     
