@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Reading, thinking and coding]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://pzengseu.github.io/"/>
-  <updated>2016-02-26T00:58:48.000Z</updated>
+  <updated>2016-02-26T00:58:50.000Z</updated>
   <id>http://pzengseu.github.io/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://pzengseu.github.io/2016/02/25/data_mining/KNN/"/>
     <id>http://pzengseu.github.io/2016/02/25/data_mining/KNN/</id>
     <published>2016-02-25T11:41:45.000Z</published>
-    <updated>2016-02-26T00:58:48.000Z</updated>
+    <updated>2016-02-26T00:58:50.000Z</updated>
     <content type="html"><![CDATA[<h2 id="Maching_learning_in_action_uFF0CKNN_28k-nearest_neighbor_29_u7B97_u6CD5_u7B14_u8BB0"><a href="#Maching_learning_in_action_uFF0CKNN_28k-nearest_neighbor_29_u7B97_u6CD5_u7B14_u8BB0" class="headerlink" title="Maching learning in action，KNN(k-nearest neighbor)算法笔记"></a>Maching learning in action，KNN(k-nearest neighbor)算法笔记</h2><h3 id="KNN_u7B97_u6CD5_u6982_u8FF0"><a href="#KNN_u7B97_u6CD5_u6982_u8FF0" class="headerlink" title="KNN算法概述"></a>KNN算法概述</h3><p>存在一个样本数据集合，也称作训练样本集，并且样本集中每个数据都存在标签，即我们知道样本集中每一数据与所属分类的对应关系．输入没有标签的数据后，将新数据的每个特征值与样本集中数据对应的特征进行比较，然后算法提取样本集中特征最相似的数据，这就是KNN算法Ｋ的出处．<br><a id="more"></a></p>
 <h4 id="KNN_u7B97_u6CD5_u4E00_u822C_u6D41_u7A0B"><a href="#KNN_u7B97_u6CD5_u4E00_u822C_u6D41_u7A0B" class="headerlink" title="KNN算法一般流程"></a>KNN算法一般流程</h4><ul>
 <li>收集数据: 可以使用任何方法</li>
