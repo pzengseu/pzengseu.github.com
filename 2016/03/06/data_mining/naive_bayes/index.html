@@ -1,0 +1,975 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Data mining,Machine learning,naive bayes,python," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="zp's blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="基于概率论的分类方法: 朴素贝叶斯naive bayes是基于贝叶斯定理与特征条件独立假设的分类方法.对于给定的训练数据集,首先基于特征条件假设学习输入/输出的联合概率分布:然后基于此模型,对给定的输入x,利用贝叶斯定理求出后验概率最大的输出y.naive bayes法实现简单,学习与预测的效率都很高,是一种常用的方法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Maching learning in action，naive bayes算法笔记">
+<meta property="og:url" content="http://pzengseu.github.io/2016/03/06/data_mining/naive_bayes/index.html">
+<meta property="og:site_name" content="zp's blog">
+<meta property="og:description" content="基于概率论的分类方法: 朴素贝叶斯naive bayes是基于贝叶斯定理与特征条件独立假设的分类方法.对于给定的训练数据集,首先基于特征条件假设学习输入/输出的联合概率分布:然后基于此模型,对给定的输入x,利用贝叶斯定理求出后验概率最大的输出y.naive bayes法实现简单,学习与预测的效率都很高,是一种常用的方法">
+<meta property="og:updated_time" content="2016-03-06T06:39:22.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Maching learning in action，naive bayes算法笔记">
+<meta name="twitter:description" content="基于概率论的分类方法: 朴素贝叶斯naive bayes是基于贝叶斯定理与特征条件独立假设的分类方法.对于给定的训练数据集,首先基于特征条件假设学习输入/输出的联合概率分布:然后基于此模型,对给定的输入x,利用贝叶斯定理求出后验概率最大的输出y.naive bayes法实现简单,学习与预测的效率都很高,是一种常用的方法">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> Maching learning in action，naive bayes算法笔记 | zp's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?b390596cfb63b2f45c318f07ba310fed";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">zp's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Reading, thinking and coding</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu menu-left">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'FvTPkqn3_SS5N9RwxEvY','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Maching learning in action，naive bayes算法笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-06T16:41:45+08:00" content="2016-03-06">
+              2016-03-06
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/03/06/data_mining/naive_bayes/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/06/data_mining/naive_bayes/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="u57FA_u4E8E_u6982_u7387_u8BBA_u7684_u5206_u7C7B_u65B9_u6CD5_3A__u6734_u7D20_u8D1D_u53F6_u65AF"><a href="#u57FA_u4E8E_u6982_u7387_u8BBA_u7684_u5206_u7C7B_u65B9_u6CD5_3A__u6734_u7D20_u8D1D_u53F6_u65AF" class="headerlink" title="基于概率论的分类方法: 朴素贝叶斯"></a>基于概率论的分类方法: 朴素贝叶斯</h1><p>naive bayes是基于贝叶斯定理与特征条件独立假设的分类方法.对于给定的训练数据集,首先基于特征条件假设学习输入/输出的联合概率分布:然后基于此模型,对给定的输入x,利用贝叶斯定理求出后验概率最大的输出y.naive bayes法实现简单,学习与预测的效率都很高,是一种常用的方法<br><a id="more"></a></p>
+<h2 id="u4F7F_u7528Python_u8FDB_u884C_u6587_u672C_u5206_u7C7B"><a href="#u4F7F_u7528Python_u8FDB_u884C_u6587_u672C_u5206_u7C7B" class="headerlink" title="使用Python进行文本分类"></a>使用Python进行文本分类</h2><h3 id="u51C6_u5907_u6570_u636E_3A__u4ECE_u6587_u672C_u4E2D_u6784_u5EFA_u8BCD_u5411_u91CF"><a href="#u51C6_u5907_u6570_u636E_3A__u4ECE_u6587_u672C_u4E2D_u6784_u5EFA_u8BCD_u5411_u91CF" class="headerlink" title="准备数据: 从文本中构建词向量"></a>准备数据: 从文本中构建词向量</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">loadDataSet</span><span class="params">()</span>:</span></span><br><span class="line">    postingList=[[<span class="string">'my'</span>, <span class="string">'dog'</span>, <span class="string">'has'</span>, <span class="string">'flea'</span>, <span class="string">'problems'</span>, <span class="string">'help'</span>, <span class="string">'please'</span>],</span><br><span class="line">                 [<span class="string">'maybe'</span>, <span class="string">'not'</span>, <span class="string">'take'</span>, <span class="string">'him'</span>, <span class="string">'to'</span>, <span class="string">'dog'</span>, <span class="string">'park'</span>, <span class="string">'stupid'</span>],</span><br><span class="line">                 [<span class="string">'my'</span>, <span class="string">'dalmation'</span>, <span class="string">'is'</span>, <span class="string">'so'</span>, <span class="string">'cute'</span>, <span class="string">'I'</span>, <span class="string">'love'</span>, <span class="string">'him'</span>],</span><br><span class="line">                 [<span class="string">'stop'</span>, <span class="string">'posting'</span>, <span class="string">'stupid'</span>, <span class="string">'worthless'</span>, <span class="string">'garbage'</span>],</span><br><span class="line">                 [<span class="string">'mr'</span>, <span class="string">'licks'</span>, <span class="string">'ate'</span>, <span class="string">'my'</span>, <span class="string">'steak'</span>, <span class="string">'how'</span>, <span class="string">'to'</span>, <span class="string">'stop'</span>, <span class="string">'him'</span>],</span><br><span class="line">                 [<span class="string">'quit'</span>, <span class="string">'buying'</span>, <span class="string">'worthless'</span>, <span class="string">'dog'</span>, <span class="string">'food'</span>, <span class="string">'stupid'</span>]]</span><br><span class="line">    classVec = [<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>]  <span class="comment">#1代表侮辱性文字,0代表正常言论</span></span><br><span class="line">    <span class="keyword">return</span> postingList, classVec</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">createVocabList</span><span class="params">(dataSet)</span>:</span></span><br><span class="line">    vocabSet = set([])</span><br><span class="line">    <span class="keyword">for</span> document <span class="keyword">in</span> dataSet:</span><br><span class="line">        vocabSet = vocabSet | set(document)</span><br><span class="line">    <span class="keyword">return</span> list(vocabSet)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">setOfWords2Vec</span><span class="params">(vocabList, inputSet)</span>:</span></span><br><span class="line">    returnVec = [<span class="number">0</span>] * len(vocabList)</span><br><span class="line">    <span class="keyword">for</span> word <span class="keyword">in</span> inputSet:</span><br><span class="line">        <span class="keyword">if</span> word <span class="keyword">in</span> vocabList:</span><br><span class="line">            returnVec[vocabList.index(word)] = <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>: <span class="keyword">print</span> <span class="string">"the word: %s is not in my Vocabulary!"</span> % word</span><br><span class="line">    <span class="keyword">return</span> returnVec</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">listPosts, listClasses = loadDataSet()</span><br><span class="line">myVocbList = createVocabList(listPosts)</span><br><span class="line">myVocbList</span><br></pre></td></tr></table></figure>
+<pre><code>[&apos;cute&apos;,
+ &apos;love&apos;,
+ &apos;help&apos;,
+ &apos;garbage&apos;,
+ &apos;quit&apos;,
+ &apos;I&apos;,
+ &apos;problems&apos;,
+ &apos;is&apos;,
+ &apos;park&apos;,
+ &apos;stop&apos;,
+ &apos;flea&apos;,
+ &apos;dalmation&apos;,
+ &apos;licks&apos;,
+ &apos;food&apos;,
+ &apos;not&apos;,
+ &apos;him&apos;,
+ &apos;buying&apos;,
+ &apos;posting&apos;,
+ &apos;has&apos;,
+ &apos;worthless&apos;,
+ &apos;ate&apos;,
+ &apos;to&apos;,
+ &apos;maybe&apos;,
+ &apos;please&apos;,
+ &apos;dog&apos;,
+ &apos;how&apos;,
+ &apos;stupid&apos;,
+ &apos;so&apos;,
+ &apos;take&apos;,
+ &apos;mr&apos;,
+ &apos;steak&apos;,
+ &apos;my&apos;]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setOfWords2Vec(myVocbList, listPosts[<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
+<pre><code>[0,
+ 0,
+ 1,
+ 0,
+ 0,
+ 0,
+ 1,
+ 0,
+ 0,
+ 0,
+ 1,
+ 0,
+ 0,
+ 0,
+ 0,
+ 0,
+ 0,
+ 0,
+ 1,
+ 0,
+ 0,
+ 0,
+ 0,
+ 1,
+ 1,
+ 0,
+ 0,
+ 0,
+ 0,
+ 0,
+ 0,
+ 1]
+</code></pre><h3 id="u8BAD_u7EC3_u7B97_u6CD5_3A__u4ECE_u8BCD_u5411_u91CF_u8BA1_u7B97_u6982_u7387"><a href="#u8BAD_u7EC3_u7B97_u6CD5_3A__u4ECE_u8BCD_u5411_u91CF_u8BA1_u7B97_u6982_u7387" class="headerlink" title="训练算法: 从词向量计算概率"></a>训练算法: 从词向量计算概率</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">trainNB0</span><span class="params">(trainMatrix, trainCategory)</span>:</span></span><br><span class="line">    numTrainDocs = len(trainMatrix)</span><br><span class="line">    numwords = len(trainMatrix[<span class="number">0</span>])</span><br><span class="line">    pAbusive = sum(trainCategory) / float(numTrainDocs)</span><br><span class="line">    p0Num = np.zeros(numwords)</span><br><span class="line">    p1Num = np.zeros(numwords)</span><br><span class="line">    p0Denom = <span class="number">0.0</span></span><br><span class="line">    p1Denom = <span class="number">0.0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> xrange(numTrainDocs):</span><br><span class="line">        <span class="keyword">if</span> trainCategory[i] == <span class="number">1</span>:</span><br><span class="line">            p1Num += trainMatrix[i]</span><br><span class="line">            p1Denom += sum(trainMatrix[i])</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            p0Num += trainMatrix[i]</span><br><span class="line">            p0Denom += sum(trainMatrix[i])</span><br><span class="line">    p1Vect = p1Num/p1Denom</span><br><span class="line">    p0Vect = p0Num/p0Denom</span><br><span class="line">    <span class="keyword">return</span> p0Vect, p1Vect, pAbusive</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">listPosts, listClasses = loadDataSet()</span><br><span class="line">myVocbList = createVocabList(listPosts)</span><br><span class="line">trainMat = []</span><br><span class="line"><span class="keyword">for</span> postinDoc <span class="keyword">in</span> listPosts:</span><br><span class="line">    trainMat.append(setOfWords2Vec(myVocbList, postinDoc))</span><br><span class="line">p0V, p1V, pAb = trainNB0(trainMat, listClasses)</span><br><span class="line">pAb</span><br></pre></td></tr></table></figure>
+<pre><code>0.5
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p0V</span><br></pre></td></tr></table></figure>
+<pre><code>array([ 0.04166667,  0.04166667,  0.04166667,  0.        ,  0.        ,
+        0.04166667,  0.04166667,  0.04166667,  0.        ,  0.04166667,
+        0.04166667,  0.04166667,  0.04166667,  0.        ,  0.        ,
+        0.08333333,  0.        ,  0.        ,  0.04166667,  0.        ,
+        0.04166667,  0.04166667,  0.        ,  0.04166667,  0.04166667,
+        0.04166667,  0.        ,  0.04166667,  0.        ,  0.04166667,
+        0.04166667,  0.125     ])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p1V</span><br></pre></td></tr></table></figure>
+<pre><code>array([ 0.        ,  0.        ,  0.        ,  0.05263158,  0.05263158,
+        0.        ,  0.        ,  0.        ,  0.05263158,  0.05263158,
+        0.        ,  0.        ,  0.        ,  0.05263158,  0.05263158,
+        0.05263158,  0.05263158,  0.05263158,  0.        ,  0.10526316,
+        0.        ,  0.05263158,  0.05263158,  0.        ,  0.10526316,
+        0.        ,  0.15789474,  0.        ,  0.05263158,  0.        ,
+        0.        ,  0.        ])
+</code></pre><h3 id="u6D4B_u8BD5_u7B97_u6CD5_3A__u6839_u636E_u73B0_u5B9E_u60C5_u51B5_u4FEE_u6539_u5206_u7C7B_u5668"><a href="#u6D4B_u8BD5_u7B97_u6CD5_3A__u6839_u636E_u73B0_u5B9E_u60C5_u51B5_u4FEE_u6539_u5206_u7C7B_u5668" class="headerlink" title="测试算法: 根据现实情况修改分类器"></a>测试算法: 根据现实情况修改分类器</h3><h4 id="u62C9_u666E_u62C9_u65AF_u5E73_u6ED1_28Laplace_smoothing_29"><a href="#u62C9_u666E_u62C9_u65AF_u5E73_u6ED1_28Laplace_smoothing_29" class="headerlink" title="拉普拉斯平滑(Laplace smoothing)"></a>拉普拉斯平滑(Laplace smoothing)</h4><p>若用Laplace smoothing,然后取自然对数,参考统计学习方法,代码如下:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">trainNB02</span><span class="params">(trainMatrix, trainCategory)</span>:</span></span><br><span class="line">    numTrainDocs = len(trainMatrix)</span><br><span class="line">    numwords = len(trainMatrix[<span class="number">0</span>])</span><br><span class="line">    pAbusive = (sum(trainCategory) + <span class="number">1</span>) / float(numTrainDocs+<span class="number">2</span>) <span class="comment">#书中没写,结果一样,但应该加上</span></span><br><span class="line">    p0Num = np.ones(numwords)</span><br><span class="line">    p1Num = np.ones(numwords)</span><br><span class="line">    p0Denom = <span class="number">2.0</span></span><br><span class="line">    p1Denom = <span class="number">2.0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> xrange(numTrainDocs):</span><br><span class="line">        <span class="keyword">if</span> trainCategory[i] == <span class="number">1</span>:</span><br><span class="line">            p1Num += trainMatrix[i]</span><br><span class="line">            p1Denom += sum(trainMatrix[i])</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            p0Num += trainMatrix[i]</span><br><span class="line">            p0Denom += sum(trainMatrix[i])</span><br><span class="line">    p1Vect = np.log(p1Num/p1Denom)</span><br><span class="line">    p0Vect = np.log(p0Num/p0Denom)</span><br><span class="line">    <span class="keyword">return</span> p0Vect, p1Vect, pAbusive</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">listPosts, listClasses = loadDataSet()</span><br><span class="line">myVocbList = createVocabList(listPosts)</span><br><span class="line">trainMat = []</span><br><span class="line"><span class="keyword">for</span> postinDoc <span class="keyword">in</span> listPosts:</span><br><span class="line">    trainMat.append(setOfWords2Vec(myVocbList, postinDoc))</span><br><span class="line">p0V, p1V, pAb = trainNB02(trainMat, listClasses)</span><br><span class="line">pAb</span><br></pre></td></tr></table></figure>
+<pre><code>0.5
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p0V</span><br></pre></td></tr></table></figure>
+<pre><code>array([-2.56494936, -2.56494936, -2.56494936, -3.25809654, -3.25809654,
+       -2.56494936, -2.56494936, -2.56494936, -3.25809654, -2.56494936,
+       -2.56494936, -2.56494936, -2.56494936, -3.25809654, -3.25809654,
+       -2.15948425, -3.25809654, -3.25809654, -2.56494936, -3.25809654,
+       -2.56494936, -2.56494936, -3.25809654, -2.56494936, -2.56494936,
+       -2.56494936, -3.25809654, -2.56494936, -3.25809654, -2.56494936,
+       -2.56494936, -1.87180218])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p1V</span><br></pre></td></tr></table></figure>
+<pre><code>array([-3.04452244, -3.04452244, -3.04452244, -2.35137526, -2.35137526,
+       -3.04452244, -3.04452244, -3.04452244, -2.35137526, -2.35137526,
+       -3.04452244, -3.04452244, -3.04452244, -2.35137526, -2.35137526,
+       -2.35137526, -2.35137526, -2.35137526, -3.04452244, -1.94591015,
+       -3.04452244, -2.35137526, -2.35137526, -3.04452244, -1.94591015,
+       -3.04452244, -1.65822808, -3.04452244, -2.35137526, -3.04452244,
+       -3.04452244, -3.04452244])
+</code></pre><h4 id="u6734_u7D20_u8D1D_u53F6_u65AF_u5206_u7C7B_u51FD_u6570"><a href="#u6734_u7D20_u8D1D_u53F6_u65AF_u5206_u7C7B_u51FD_u6570" class="headerlink" title="朴素贝叶斯分类函数"></a>朴素贝叶斯分类函数</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">classifyNB</span><span class="params">(vec2Classify, p0Vec, p1Vec, pClass1)</span>:</span></span><br><span class="line">    p1 = sum(vec2Classify * p1Vec) + np.log(pClass1)</span><br><span class="line">    p0 = sum(vec2Classify * p0Vec) + np.log(<span class="number">1</span> - pClass1)</span><br><span class="line">    <span class="keyword">if</span> p1 &gt; p0:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>: <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">testingNB</span><span class="params">()</span>:</span></span><br><span class="line">    listPosts, listClasses = loadDataSet()</span><br><span class="line">    myVocabList = createVocabList(listPosts)</span><br><span class="line">    trainMat = []</span><br><span class="line">    <span class="keyword">for</span> post <span class="keyword">in</span> listPosts:</span><br><span class="line">        trainMat.append(setOfWords2Vec(myVocabList, post))</span><br><span class="line">    p0V, p1V, pAb = trainNB02(trainMat, listClasses)</span><br><span class="line">    testEntry = [<span class="string">'love'</span>, <span class="string">'my'</span>, <span class="string">'dalmation'</span>]</span><br><span class="line">    thisDoc = np.array(setOfWords2Vec(myVocabList, testEntry))</span><br><span class="line">    <span class="keyword">print</span> testEntry,<span class="string">'classified as:'</span>, classifyNB(thisDoc, p0V, p1V, pAb)</span><br><span class="line">    testEntry = [<span class="string">'stupid'</span>, <span class="string">'garbage'</span>]</span><br><span class="line">    thisDoc = np.array(setOfWords2Vec(myVocabList, testEntry))</span><br><span class="line">    <span class="keyword">print</span> testEntry,<span class="string">'classified as:'</span>, classifyNB(thisDoc, p0V, p1V, pAb)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">testingNB()</span><br></pre></td></tr></table></figure>
+<pre><code>[&apos;love&apos;, &apos;my&apos;, &apos;dalmation&apos;] classified as: 0
+[&apos;stupid&apos;, &apos;garbage&apos;] classified as: 1
+</code></pre><h3 id="u51C6_u5907_u6570_u636E_3A__u6587_u6863_u8BCD_u888B_u6A21_u578B"><a href="#u51C6_u5907_u6570_u636E_3A__u6587_u6863_u8BCD_u888B_u6A21_u578B" class="headerlink" title="准备数据: 文档词袋模型"></a>准备数据: 文档词袋模型</h3><p>上面的模型仅统计单词是否出现,这里统计单词出现的总次数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bagOfWord2VecMN</span><span class="params">(vocabList, inputSet)</span>:</span></span><br><span class="line">    returnVec = [<span class="number">0</span>] * len(vocabList)</span><br><span class="line">    <span class="keyword">for</span> word <span class="keyword">in</span> inputSet:</span><br><span class="line">        <span class="keyword">if</span> word <span class="keyword">in</span> vocabList:</span><br><span class="line">            returnVec[vocabList.index(word)] += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> returnVec</span><br></pre></td></tr></table></figure>
+<h2 id="u793A_u4F8B_3A__u4F7F_u7528_u6734_u7D20_u8D1D_u53F6_u65AF_u8FC7_u6EE4_u5783_u573E_u90AE_u4EF6"><a href="#u793A_u4F8B_3A__u4F7F_u7528_u6734_u7D20_u8D1D_u53F6_u65AF_u8FC7_u6EE4_u5783_u573E_u90AE_u4EF6" class="headerlink" title="示例: 使用朴素贝叶斯过滤垃圾邮件"></a>示例: 使用朴素贝叶斯过滤垃圾邮件</h2><h3 id="u51C6_u5907_u6570_u636E_3A__u5207_u5206_u6587_u672C"><a href="#u51C6_u5907_u6570_u636E_3A__u5207_u5206_u6587_u672C" class="headerlink" title="准备数据: 切分文本"></a>准备数据: 切分文本</h3><p>[s.lower() for s in re.split(r’\W*’, str) if len(s) &gt; 2] </p>
+<h3 id="u6D4B_u8BD5_u7B97_u6CD5_3A__u4F7F_u7528_u6734_u7D20_u8D1D_u53F6_u65AF_u8FDB_u884C_u4EA4_u53C9_u9A8C_u8BC1"><a href="#u6D4B_u8BD5_u7B97_u6CD5_3A__u4F7F_u7528_u6734_u7D20_u8D1D_u53F6_u65AF_u8FDB_u884C_u4EA4_u53C9_u9A8C_u8BC1" class="headerlink" title="测试算法: 使用朴素贝叶斯进行交叉验证"></a>测试算法: 使用朴素贝叶斯进行交叉验证</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">textParse</span><span class="params">(bigString)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> [s.lower() <span class="keyword">for</span> s <span class="keyword">in</span> re.split(<span class="string">r'\W*'</span>, bigString) <span class="keyword">if</span> len(s) &gt; <span class="number">2</span>]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">spamTest</span><span class="params">()</span>:</span></span><br><span class="line">    docList = []</span><br><span class="line">    classList = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> xrange(<span class="number">1</span>, <span class="number">26</span>):</span><br><span class="line">        wordList = textParse(open(<span class="string">'email/spam/%d.txt'</span> % i).read())</span><br><span class="line"><span class="comment">#         print wordList</span></span><br><span class="line">        docList.append(wordList)</span><br><span class="line">        classList.append(<span class="number">1</span>)</span><br><span class="line">        wordList = textParse(open(<span class="string">'email/ham/%d.txt'</span> % i).read())</span><br><span class="line">        docList.append(wordList)</span><br><span class="line">        classList.append(<span class="number">0</span>)</span><br><span class="line">    vocabList = createVocabList(docList)</span><br><span class="line">    trainingSet = range(<span class="number">50</span>)</span><br><span class="line">    testSet = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> xrange(<span class="number">10</span>):</span><br><span class="line">        randIndex = int(random.uniform(<span class="number">0</span>, len(trainingSet)))</span><br><span class="line">        testSet.append(trainingSet[randIndex])</span><br><span class="line">        <span class="keyword">del</span> trainingSet[randIndex]</span><br><span class="line">    trainMat = []</span><br><span class="line">    trainClasses = []</span><br><span class="line">    <span class="keyword">for</span> docIndex <span class="keyword">in</span> trainingSet:</span><br><span class="line">        trainMat.append(setOfWords2Vec(vocabList, docList[docIndex]))</span><br><span class="line">        trainClasses.append(classList[docIndex])</span><br><span class="line">    p0V, p1V, pSpam = trainNB02(trainMat, trainClasses)</span><br><span class="line">    errorCount = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> docIndex <span class="keyword">in</span> testSet:</span><br><span class="line">        wordVector = setOfWords2Vec(vocabList, docList[docIndex])</span><br><span class="line">        <span class="keyword">if</span> classifyNB(wordVector, p0V, p1V, pSpam) != classList[docIndex]:</span><br><span class="line">            errorCount += <span class="number">1</span></span><br><span class="line">            <span class="keyword">print</span> <span class="string">'the error rate is: '</span>, float(errorCount)/len(testSet)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spamTest()</span><br></pre></td></tr></table></figure>
+<h2 id="u793A_u4F8B_3A__u4F7F_u7528_u6734_u7D20_u8D1D_u53F6_u65AF_u5206_u7C7B_u5668_u4ECE_u4E2A_u4EBA_u5E7F_u544A_u4E2D_u56DE_u53BB_u533A_u57DF_u503E_u5411"><a href="#u793A_u4F8B_3A__u4F7F_u7528_u6734_u7D20_u8D1D_u53F6_u65AF_u5206_u7C7B_u5668_u4ECE_u4E2A_u4EBA_u5E7F_u544A_u4E2D_u56DE_u53BB_u533A_u57DF_u503E_u5411" class="headerlink" title="示例: 使用朴素贝叶斯分类器从个人广告中回去区域倾向"></a>示例: 使用朴素贝叶斯分类器从个人广告中回去区域倾向</h2><h3 id="u6536_u96C6_u6570_u636E_3A__u5BFC_u5165RSS_u6E90"><a href="#u6536_u96C6_u6570_u636E_3A__u5BFC_u5165RSS_u6E90" class="headerlink" title="收集数据: 导入RSS源"></a>收集数据: 导入RSS源</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> feedparser</span><br><span class="line">ny = feedparser.parse(<span class="string">'http://newyork.craigslist.org/stp/index.rss'</span>)</span><br><span class="line">sy = feedparser.parse(<span class="string">'http://sfbay.craigslist.org/stp/index.rss'</span>)</span><br><span class="line">len(sy[<span class="string">'entries'</span>])</span><br></pre></td></tr></table></figure>
+<pre><code>25
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">calcMostFreq</span><span class="params">(vocabList, fullText)</span>:</span></span><br><span class="line">    freqDict = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> token <span class="keyword">in</span> vocabList:</span><br><span class="line">        freqDict[token] = fullText.count(token)</span><br><span class="line">    sortedFreq = sorted(freqDict, key=<span class="keyword">lambda</span> x: x[<span class="number">1</span>], reverse=<span class="keyword">True</span>)</span><br><span class="line">    <span class="keyword">return</span> sortedFreq[:<span class="number">30</span>]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">localWords</span><span class="params">(feed1, feed0)</span>:</span></span><br><span class="line">    docList = []</span><br><span class="line">    classList = []</span><br><span class="line">    fullText = []</span><br><span class="line"><span class="comment">#     print len(feed1['entries']), len(feed0['entries'])</span></span><br><span class="line">    minLen = min(len(feed1[<span class="string">'entries'</span>]), len(feed0[<span class="string">'entries'</span>]))</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> xrange(minLen):</span><br><span class="line">        wordList = textParse(feed1[<span class="string">'entries'</span>][i][<span class="string">'summary'</span>])</span><br><span class="line">        docList.append(wordList)</span><br><span class="line">        fullText.extend(wordList)</span><br><span class="line">        classList.append(<span class="number">1</span>)</span><br><span class="line">        wordList = textParse(feed0[<span class="string">'entries'</span>][i][<span class="string">'summary'</span>])</span><br><span class="line">        docList.append(wordList)</span><br><span class="line">        fullText.extend(wordList)</span><br><span class="line">        classList.append(<span class="number">0</span>)</span><br><span class="line">    vocabList = createVocabList(docList)</span><br><span class="line"><span class="comment">#     print len(vocabList), len(fullText)</span></span><br><span class="line">    top30Words = calcMostFreq(vocabList, fullText)</span><br><span class="line"><span class="comment">#     print top30Words</span></span><br><span class="line">    <span class="keyword">for</span> pairW <span class="keyword">in</span> top30Words:</span><br><span class="line">        vocabList.remove(pairW)</span><br><span class="line">    trainingSet = range(<span class="number">2</span> * minLen)</span><br><span class="line">    testSet = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> xrange(<span class="number">20</span>):</span><br><span class="line">        randIndex = int(random.uniform(<span class="number">0</span>, len(trainingSet)))</span><br><span class="line">        testSet.append(trainingSet[randIndex])</span><br><span class="line">        <span class="keyword">del</span> trainingSet[randIndex]</span><br><span class="line">    trainMat = []</span><br><span class="line">    trainClass = []</span><br><span class="line">    <span class="keyword">for</span> docIndex <span class="keyword">in</span> trainingSet:</span><br><span class="line">        trainMat.append(bagOfWord2VecMN(vocabList, docList[docIndex]))</span><br><span class="line">        trainClass.append(classList[docIndex])</span><br><span class="line">    p0V, p1V, pSpam = trainNB02(trainMat, trainClass)</span><br><span class="line">    errorCount = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> docIndex <span class="keyword">in</span> testSet:</span><br><span class="line">        wordVector = bagOfWord2VecMN(vocabList, docList[docIndex])</span><br><span class="line">        <span class="keyword">if</span> classifyNB(wordVector, p0V, p1V, pSpam) != classList[docIndex]:</span><br><span class="line">            errorCount += <span class="number">1</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">"the error rate is: "</span>, float(errorCount)/len(testSet)</span><br><span class="line">    <span class="keyword">return</span> vocabList, p0V, p1V</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a, b, c = localWords(ny, sy)</span><br></pre></td></tr></table></figure>
+<pre><code>the error rate is:  0.25
+</code></pre><h3 id="u5206_u6790_u6570_u636E_3A__u663E_u793A_u5730_u57DF_u76F8_u5173_u7684_u7528_u8BCD"><a href="#u5206_u6790_u6570_u636E_3A__u663E_u793A_u5730_u57DF_u76F8_u5173_u7684_u7528_u8BCD" class="headerlink" title="分析数据: 显示地域相关的用词"></a>分析数据: 显示地域相关的用词</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getTopWords</span><span class="params">(ny, sf)</span>:</span></span><br><span class="line">    vocabList, p0V, p1V = localWords(ny, sy)</span><br><span class="line">    topNY = []</span><br><span class="line">    topSF = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> xrange(len(p0V)):</span><br><span class="line">        topNY.append((vocabList[i], p1V[i]))</span><br><span class="line">        topSF.append((vocabList[i], p0V[i]))</span><br><span class="line">    sortedNY = sorted(topNY, key=<span class="keyword">lambda</span> x: x[<span class="number">1</span>])</span><br><span class="line">    sortedSF = sorted(topSF, key=<span class="keyword">lambda</span> x: x[<span class="number">1</span>])</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"NY------------"</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> xrange(<span class="number">8</span>):</span><br><span class="line">        <span class="keyword">print</span> sortedNY[i][<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"SF------------"</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> xrange(<span class="number">8</span>):</span><br><span class="line">        <span class="keyword">print</span> sortedSF[i][<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getTopWords(ny, sy)</span><br></pre></td></tr></table></figure>
+<pre><code>the error rate is:  0.15
+NY------------
+enjoyable
+asian
+hanging
+shot
+95748
+technique
+ucsc
+languages
+SF------------
+all
+focus
+month
+enjoyable
+doujins
+hanging
+shot
+certainly
+</code></pre>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Data-mining/" rel="tag">#Data mining</a>
+          
+            <a href="/tags/Machine-learning/" rel="tag">#Machine learning</a>
+          
+            <a href="/tags/naive-bayes/" rel="tag">#naive bayes</a>
+          
+            <a href="/tags/python/" rel="tag">#python</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/01/data_mining/decisionTree/" rel="next" title="Maching learning in action，决策树(decision tree)ID3算法笔记">
+                <i class="fa fa-chevron-left"></i> Maching learning in action，决策树(decision tree)ID3算法笔记
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/03/06/data_mining/naive_bayes/"
+           data-title="Maching learning in action，naive bayes算法笔记" data-url="http://pzengseu.github.io/2016/03/06/data_mining/naive_bayes/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="zpeng" />
+          <p class="site-author-name" itemprop="name">zpeng</p>
+          <p class="site-description motion-element" itemprop="description">非典型程序员</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">22</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/pzengseu" target="_blank">
+                  
+                    <i class="fa fa-github"></i> GitHub
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/ceng-peng-66" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> zhihu
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.hackerrank.com/zpeng" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> HarkerRank
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            <p class="site-author-name">以前的博客，放弃管理</p>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.sina.com.cn/u/2413914251" target="_blank">新浪博客</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.oschina.net/code/list_by_user?id=256373" target="_blank">oschina code</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://my.oschina.net/zpengseu/blog" target="_blank">oschina blog</a>
+              </span>
+            
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#u57FA_u4E8E_u6982_u7387_u8BBA_u7684_u5206_u7C7B_u65B9_u6CD5_3A__u6734_u7D20_u8D1D_u53F6_u65AF"><span class="nav-number">1.</span> <span class="nav-text">基于概率论的分类方法: 朴素贝叶斯</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u4F7F_u7528Python_u8FDB_u884C_u6587_u672C_u5206_u7C7B"><span class="nav-number">1.1.</span> <span class="nav-text">使用Python进行文本分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u51C6_u5907_u6570_u636E_3A__u4ECE_u6587_u672C_u4E2D_u6784_u5EFA_u8BCD_u5411_u91CF"><span class="nav-number">1.1.1.</span> <span class="nav-text">准备数据: 从文本中构建词向量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u8BAD_u7EC3_u7B97_u6CD5_3A__u4ECE_u8BCD_u5411_u91CF_u8BA1_u7B97_u6982_u7387"><span class="nav-number">1.1.2.</span> <span class="nav-text">训练算法: 从词向量计算概率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u6D4B_u8BD5_u7B97_u6CD5_3A__u6839_u636E_u73B0_u5B9E_u60C5_u51B5_u4FEE_u6539_u5206_u7C7B_u5668"><span class="nav-number">1.1.3.</span> <span class="nav-text">测试算法: 根据现实情况修改分类器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#u62C9_u666E_u62C9_u65AF_u5E73_u6ED1_28Laplace_smoothing_29"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">拉普拉斯平滑(Laplace smoothing)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u6734_u7D20_u8D1D_u53F6_u65AF_u5206_u7C7B_u51FD_u6570"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">朴素贝叶斯分类函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u51C6_u5907_u6570_u636E_3A__u6587_u6863_u8BCD_u888B_u6A21_u578B"><span class="nav-number">1.1.4.</span> <span class="nav-text">准备数据: 文档词袋模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u793A_u4F8B_3A__u4F7F_u7528_u6734_u7D20_u8D1D_u53F6_u65AF_u8FC7_u6EE4_u5783_u573E_u90AE_u4EF6"><span class="nav-number">1.2.</span> <span class="nav-text">示例: 使用朴素贝叶斯过滤垃圾邮件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u51C6_u5907_u6570_u636E_3A__u5207_u5206_u6587_u672C"><span class="nav-number">1.2.1.</span> <span class="nav-text">准备数据: 切分文本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u6D4B_u8BD5_u7B97_u6CD5_3A__u4F7F_u7528_u6734_u7D20_u8D1D_u53F6_u65AF_u8FDB_u884C_u4EA4_u53C9_u9A8C_u8BC1"><span class="nav-number">1.2.2.</span> <span class="nav-text">测试算法: 使用朴素贝叶斯进行交叉验证</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u793A_u4F8B_3A__u4F7F_u7528_u6734_u7D20_u8D1D_u53F6_u65AF_u5206_u7C7B_u5668_u4ECE_u4E2A_u4EBA_u5E7F_u544A_u4E2D_u56DE_u53BB_u533A_u57DF_u503E_u5411"><span class="nav-number">1.3.</span> <span class="nav-text">示例: 使用朴素贝叶斯分类器从个人广告中回去区域倾向</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u6536_u96C6_u6570_u636E_3A__u5BFC_u5165RSS_u6E90"><span class="nav-number">1.3.1.</span> <span class="nav-text">收集数据: 导入RSS源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5206_u6790_u6570_u636E_3A__u663E_u793A_u5730_u57DF_u76F8_u5173_u7684_u7528_u8BCD"><span class="nav-number">1.3.2.</span> <span class="nav-text">分析数据: 显示地域相关的用词</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zpeng</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"pzeng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+
+</body>
+</html>
