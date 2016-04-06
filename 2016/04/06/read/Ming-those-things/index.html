@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="data-mining,python," />
+  <meta name="keywords" content="书单,历史,阅读," />
 
 
 
@@ -59,16 +59,16 @@
 
 
 
-<meta name="description" content="总结学习＜python数据分析与挖掘实战＞碰到的一些问题，这些问题主要是书中的不足之处或程序的bug.">
+<meta name="description" content="午后在图书馆,看完了明朝那些事儿的最后一章,作者以这么一句话介绍全书: 成功只有一个——按照自己的方式，去度过人生。瞬间热泪盈眶.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python数据分析与挖掘实战的一些bug">
-<meta property="og:url" content="http://pzengseu.github.io/2016/02/19/data_mining/python-data-mining-error/index.html">
+<meta property="og:title" content="明朝哪些事儿">
+<meta property="og:url" content="http://pzengseu.github.io/2016/04/06/read/Ming-those-things/index.html">
 <meta property="og:site_name" content="zp's blog">
-<meta property="og:description" content="总结学习＜python数据分析与挖掘实战＞碰到的一些问题，这些问题主要是书中的不足之处或程序的bug.">
-<meta property="og:updated_time" content="2016-02-19T12:34:12.000Z">
+<meta property="og:description" content="午后在图书馆,看完了明朝那些事儿的最后一章,作者以这么一句话介绍全书: 成功只有一个——按照自己的方式，去度过人生。瞬间热泪盈眶.">
+<meta property="og:updated_time" content="2016-04-06T14:18:51.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python数据分析与挖掘实战的一些bug">
-<meta name="twitter:description" content="总结学习＜python数据分析与挖掘实战＞碰到的一些问题，这些问题主要是书中的不足之处或程序的bug.">
+<meta name="twitter:title" content="明朝哪些事儿">
+<meta name="twitter:description" content="午后在图书馆,看完了明朝那些事儿的最后一章,作者以这么一句话介绍全书: 成功只有一个——按照自己的方式，去度过人生。瞬间热泪盈眶.">
 
 
 
@@ -86,7 +86,7 @@
   };
 </script>
 
-  <title> python数据分析与挖掘实战的一些bug | zp's blog </title>
+  <title> 明朝哪些事儿 | zp's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -255,7 +255,7 @@
             
             
               
-                python数据分析与挖掘实战的一些bug
+                明朝哪些事儿
               
             
           </h1>
@@ -267,8 +267,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-02-19T15:01:05+08:00" content="2016-02-19">
-              2016-02-19
+            <time itemprop="dateCreated" datetime="2016-04-06T19:20:56+08:00" content="2016-04-06">
+              2016-04-06
             </time>
           </span>
 
@@ -281,8 +281,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/技术/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
+                  <a href="/categories/阅读/" itemprop="url" rel="index">
+                    <span itemprop="name">阅读</span>
                   </a>
                 </span>
 
@@ -297,8 +297,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/02/19/data_mining/python-data-mining-error/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/19/data_mining/python-data-mining-error/" itemprop="commentsCount"></span>
+                <a href="/2016/04/06/read/Ming-those-things/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/06/read/Ming-those-things/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -319,19 +319,8 @@
       
 
       
-        <p>总结学习＜python数据分析与挖掘实战＞碰到的一些问题，这些问题主要是书中的不足之处或程序的bug.<br><a id="more"></a></p>
-<h3 id="pandas_u8BFB_u53D6excel_u6587_u4EF6"><a href="#pandas_u8BFB_u53D6excel_u6587_u4EF6" class="headerlink" title="pandas读取excel文件"></a>pandas读取excel文件</h3><p>书上P36页读取EXCEL文件是这样的(第一次出现在P27)</p>
-<p><code>data = pd.read_excel(catering_sale, index_col = u&#39;日期&#39;)</code><br>这会报错：<br><code>TypeError: read_excel() takes exactly 2 arguments (1 given)</code><br>于是查看read_excel函数的定义：<br><code>def read_excel(io, sheetname, **kwds):</code><br>需要两个参数，而io, sheetname是这样定义的<br><figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">io : <span class="keyword">string</span>, <span class="keyword">file</span>-like <span class="keyword">object</span> <span class="keyword">or</span> xlrd workbook</span><br><span class="line">    <span class="keyword">If</span> a <span class="keyword">string</span>, expected <span class="keyword">to</span> be a path <span class="keyword">to</span> xls <span class="keyword">or</span> xlsx <span class="keyword">file</span></span><br><span class="line">sheetname : <span class="keyword">string</span></span><br><span class="line">     Name <span class="keyword">of</span> Excel sheet</span><br></pre></td></tr></table></figure></p>
-<p>于是，我这样写：<br><code>data = pd.read_excel(catering_sale, sheetname=&#39;catering_sale&#39;, index_col = u&#39;日期&#39;)</code><br>报错找不到表名,后来在stack overflow上才知道这是pandas　api变动，要令sheetname=0,于是改成这样：<br><code>data = pd.read_excel(catering_sale, sheetname=0, index_col = u&#39;日期&#39;)</code><br>通过，书中的这个bug,浪费了我好多时间．</p>
-<h3 id="matplotlib_u753B_u56FE_u4E2D_u6587_u5B57_u4F53"><a href="#matplotlib_u753B_u56FE_u4E2D_u6587_u5B57_u4F53" class="headerlink" title="matplotlib画图中文字体"></a>matplotlib画图中文字体</h3><p>书中中文字体是这样说的P26<br><code>plt.rcParams[&#39;font.sans-serif&#39;] = [&#39;SimHei&#39;]</code><br>这个在Windows上有没有用不知道，但在本人的ubuntu上，是没有效果的,还报错找不到sans-serif字体．对于这个问题，找遍goole终于成功解决．参考文章<a href="http://www.cnblogs.com/skabyy/p/3461229.html" target="_blank" rel="external">Ubuntu下matplotlib的中文显示</a></p>
-<h4 id="u4FEE_u6539/etc/matplotlib"><a href="#u4FEE_u6539/etc/matplotlib" class="headerlink" title="修改/etc/matplotlib"></a>修改/etc/matplotlib</h4><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">font</span><span class="class">.family</span>: sans-serif</span><br><span class="line"><span class="attribute">font</span><span class="class">.sans-serif</span>: WenQuanYi Micro Hei, Bitstream Vera Sans, Lucida Grande, Verdana, Geneva, Lucid, Arial, Helvetica, Avant Garde, sans-serif</span><br></pre></td></tr></table></figure>
-<p>添加wqy字体，前提是先安装wqy字体．</p>
-<h4 id="u6E05_u7A7A_u5B57_u4F53_u7F13_u5B58"><a href="#u6E05_u7A7A_u5B57_u4F53_u7F13_u5B58" class="headerlink" title="清空字体缓存"></a>清空字体缓存</h4><p>若不清空，不会有效果．<br><code>rm ~/.cache/matplotlib/</code></p>
-<h4 id="u5B57_u4F53_u6587_u4EF6_u540E_u7F00"><a href="#u5B57_u4F53_u6587_u4EF6_u540E_u7F00" class="headerlink" title="字体文件后缀"></a>字体文件后缀</h4><p>由于matplotlib查找系统字体的时候不匹配ttc字体文件，所以：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd <span class="regexp">/usr/</span>share<span class="regexp">/fonts/</span>truetype/wqy</span><br><span class="line">cp wqymicrohei.ttc wqymicrohei.ttf</span><br></pre></td></tr></table></figure></p>
-<p>重新运行程序，中文字体显示成功.</p>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="http://music.163.com/outchain/player?type=3&id=15947072&auto=1&height=66"></iframe>
-
-<h3 id="pandas_plot_u51FD_u6570kind_u53C2_u6570"><a href="#pandas_plot_u51FD_u6570kind_u53C2_u6570" class="headerlink" title="pandas plot函数kind参数"></a>pandas plot函数kind参数</h3><p>P55　D.plot(kind=’box’)错误，kind参数不能指定为box函数，应换为boxplot()函数．<br>查看帮助文档可以指定的参数：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">kind :</span> &#123;<span class="string">'line'</span>, <span class="string">'bar'</span>, <span class="string">'barh'</span>, <span class="string">'kde'</span>, <span class="string">'density'</span>, <span class="string">'scatter'</span>&#125;</span><br><span class="line">    <span class="string">bar :</span> vertical bar plot</span><br><span class="line">    <span class="string">barh :</span> horizontal bar plot</span><br><span class="line">    kde/<span class="string">density :</span> Kernel Density Estimation plot</span><br><span class="line"><span class="label">    scatter:</span> scatter plot</span><br></pre></td></tr></table></figure></p>
+        <p>午后在图书馆,看完了<em>明朝那些事儿</em>的最后一章,作者以这么一句话介绍全书: <em>成功只有一个——按照自己的方式，去度过人生</em>。瞬间热泪盈眶.<br><a id="more"></a><br>这本两百多万字的书,我看了一个多月,读完意犹未尽,下面总结下这本书给我印象较深的人和事.<br>首先第一个人就是陈又凉,谁叫这位大哥是我老乡呢!但说来惭愧,对这位人物的唯一印象是<em>倚天屠龙记</em>里的明教叛徒,为了得到倚天剑屠龙刀不折手段,是个坏人.历史人物没有好坏,他是一位枭雄,被朱元璋打败.对朱元璋这位开国皇帝,一直以为他跟刘邦一样地鳖流氓出身,但朱元璋当皇帝后更残忍,当年帮他打天下的人物,抄家的抄家,充军的充军,毫不留情.同时朱元璋肃贪,也是好不留情,当官成了苦差事.<br>朱元璋时期的太子比较短命,但是他特别喜欢他的孙子朱允文,于是朱允文成了明朝第二任皇帝,朱允文是个好人,好人不适合做皇帝.朱允炆的削藩最终导致朱棣造反,好人朱允炆明确表示打仗时不能上了朱棣,这导致朱棣几次死里逃生,最终朱棣造反成功,朱允炆失踪,成为历史谜题.我以前对这两位的印象停留在<em>穿越时空的爱恋</em>,电视剧不可信,更不用说天朝第一部穿越剧.朱棣是个很有作为的皇帝,他执政时期,明朝第一位也是唯一一位因好事名垂千古的太监出现了,他就是郑和,郑和七下西洋.郑和下西洋,不像欧帝去外殖民,郑和是在国外传播中华文明,扬我国威,最后出现四方来朝的盛况.<br>接下来就要说说传奇皇帝朱祁镇了.这位皇帝的人生可谓没白活,太丰富多彩了.受到明朝第一位著名太监王振的怂恿,亲自率军出征蒙古,结果出现土木堡之变,全军覆没不说,还当了一年俘虏,可这位皇帝没有富贵病,成为俘虏了居然还能与别人打成一片,不可思议.这个时候朱祁镇的弟弟朱祁钰上场了,果然权利能改变了,原本关系很好的两人因为皇位也就是权利闹翻,朱祁钰将蒙古人送回来的朱祁镇囚禁七年,可真实苦了这位皇帝了.七年之后夺门之变朱祁镇再次坐上宝座,这人生值了.可是重夺宝座的朱祁镇却干掉了于谦,千古忠臣啊.最近有部剧叫<em>女医明妃传</em>,看了它的简介,心中一万个草泥马在奔腾,历史能被改成这样,小编也是想象力丰富.<br>我以前不相信皇帝会有爱情,但我看到了朱见深的爱情,一生只爱大她17岁的万妃.这个万贵妃长得并不出色，年纪已经大了，为什么皇上还会集万千宠爱于她一身呢。朱见深知道大臣们的疑惑，但他不想解释什么。因为他们是不会理解的。在那孤独无助的岁月里，只有她守护在我身边，陪伴着我，走过无数的风雨，始终如一，不离不弃。在我心中，也许他不能算是一位好的皇帝，但最是这份挚爱情深，问世间有多少人一朝做到高处还能够做到对他的老婆不离不弃。<br>明朝最会玩的皇帝朱厚照,封自己为威武大将军的皇帝,这是个奇葩皇帝.著名太监刘瑾就出现在这一时期,但被隐忍的李东阳干掉了,厚照也把自己玩死了.这一时期出现了一位圣人王阳明,哲学家发明了心学,所谓知行合一的来源.<br>嘉靖时期,朱厚熜当了40多年皇帝, 出现了著名奸臣严嵩, 以前一直一位严嵩很厉害是考他自己上位的,原来不是,原来他有个好儿子严世藩,严世藩聪明绝顶,帮他一步步上位.徐阶就是整了他儿子,才把严嵩搞下去.这一时期,倭寇侵犯东南,戚继光救火.<br>万历皇帝朱翊钧,明朝最长的一个年号.其间出现了张居正这样的千古人物.张居正任首辅期间,大势改革,发明了考勤制度,一时大明王朝国库充盈,如果没有张居正明朝没有钱用来打仗,明朝覆灭的进程将会加快.这一时期,抗日援朝,万历皇帝二十年不上朝,因为赌气不立太子.明朝从万历中期开始补补走走衰落.这里不得不说说这个时候的千古廉臣海瑞了.以前有部电视剧叫<em>海瑞斗严嵩</em>,所以对他的印象就是一个廉洁的代表.但海瑞是一个可以做事却不能做大事的人,看明白是一件事,取解决又是一件事,海瑞的确值得敬佩,但只是他的品质,而不是能力.<br>朱由校这位皇帝也是个奇葩,中国历史唯一的一个木匠皇帝,可以生在帝王家.从历史上看,奇葩皇帝一定伴有大奸,该魏忠贤上场了,可能这是历史上最有名的太监了,封了个九千九百岁.<br>好了,轮到最后一位皇帝朱由检上场了,崇祯皇帝他一上来就灭了魏忠贤,想要救火可谁知,水灭不了火!!!乱世出英雄,这一时期出现的人物太多,袁崇焕,孙承宗,毛文龙,李自成,张献忠,皇太极…我只想谈谈袁崇焕,孙承宗,毛文龙这三个人.很多人说明朝的覆灭是因为昏庸的崇祯灭了袁崇焕,也有很多人说袁崇焕并不能拯救大明,孙承宗才能.以前我一直认为袁崇焕是个可以与岳飞比肩的大英雄,就是因为他的死才导致大明覆灭.现在看来谁都救不了了,这是一个从量变到质变的过程,只能说谁能推迟它的灭亡,孙承宗可以,袁崇焕不仅不行还加速了大明灭亡.袁崇焕是孙承宗的徒弟,孙承宗打造的宁锦防线守住了大明几时了,袁崇焕做事太冲动,他有能力,却没有战略眼光.要说说毛文龙了,他的手下全是流氓,而流氓只有大流氓才能管的住,一直以来都是毛文龙在后金后面骚扰后金,可是袁崇焕因为看毛文龙不爽把毛文龙杀了,接着把这些流氓交给毛文龙儿子管,他儿子怎么可能管的了这些流氓,最后这些人都反了.由于他们开了先河,之后造反的队伍如雨后春笋.明朝亡国是内忧外患,内忧直接导致亡国.大多数人觉得袁崇焕好,但事实是袁崇焕是好,但没想象中好,这要看历史是谁写的,历史是清朝写的,只有说袁崇焕好,才能体现崇祯的昏.<br>历史是个说不清道不明的东西,我们知道的历史不一定是真的,可能早已被改的面目全非.</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="298" height="52" src="http://music.163.com/outchain/player?type=2&id=29947420&auto=1&height=32"></iframe>
 
       
     </div>
@@ -340,9 +329,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/data-mining/" rel="tag">#data-mining</a>
+            <a href="/tags/书单/" rel="tag">#书单</a>
           
-            <a href="/tags/python/" rel="tag">#python</a>
+            <a href="/tags/历史/" rel="tag">#历史</a>
+          
+            <a href="/tags/阅读/" rel="tag">#阅读</a>
           
         </div>
       
@@ -351,17 +342,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/01/26/seu-snow/" rel="next" title="雪景雪人">
-                <i class="fa fa-chevron-left"></i> 雪景雪人
+              <a href="/2016/03/06/data_mining/naive_bayes/" rel="next" title="Maching learning in action，naive bayes算法笔记">
+                <i class="fa fa-chevron-left"></i> Maching learning in action，naive bayes算法笔记
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/02/25/data_mining/KNN/" rel="prev" title="Maching learning in action，KNN(k-nearest neighbor)算法笔记">
-                Maching learning in action，KNN(k-nearest neighbor)算法笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -410,8 +397,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/02/19/data_mining/python-data-mining-error/"
-           data-title="python数据分析与挖掘实战的一些bug" data-url="http://pzengseu.github.io/2016/02/19/data_mining/python-data-mining-error/">
+      <div class="ds-thread" data-thread-key="2016/04/06/read/Ming-those-things/"
+           data-title="明朝哪些事儿" data-url="http://pzengseu.github.io/2016/04/06/read/Ming-those-things/">
       </div>
     
   </div>
@@ -556,7 +543,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#pandas_u8BFB_u53D6excel_u6587_u4EF6"><span class="nav-number">1.</span> <span class="nav-text">pandas读取excel文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#matplotlib_u753B_u56FE_u4E2D_u6587_u5B57_u4F53"><span class="nav-number">2.</span> <span class="nav-text">matplotlib画图中文字体</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#u4FEE_u6539/etc/matplotlib"><span class="nav-number">2.1.</span> <span class="nav-text">修改/etc/matplotlib</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u6E05_u7A7A_u5B57_u4F53_u7F13_u5B58"><span class="nav-number">2.2.</span> <span class="nav-text">清空字体缓存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u5B57_u4F53_u6587_u4EF6_u540E_u7F00"><span class="nav-number">2.3.</span> <span class="nav-text">字体文件后缀</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pandas_plot_u51FD_u6570kind_u53C2_u6570"><span class="nav-number">3.</span> <span class="nav-text">pandas plot函数kind参数</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
