@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="python,shell," />
+  <meta name="keywords" content="hello,python," />
 
 
 
@@ -59,19 +59,16 @@
 
 
 
-<meta name="description" content="前言想把python替代shell脚本,避免不了的问题是,在命令行中结合python脚本使用重定向,管道作为输入.
-方案python内置fileinput模块可以解决这个问题,如下脚本:123456#!/usr/bin/env python3import fileinputwith fileinput.input() as f_input:    for line in f_input:">
+<meta name="description" content="12abc">
 <meta property="og:type" content="article">
-<meta property="og:title" content="通过重定向,管道来作为python脚本的输入">
-<meta property="og:url" content="http://pzengseu.github.io/2016/01/25/python/script-input-python/index.html">
+<meta property="og:title" content="Hello  537">
+<meta property="og:url" content="http://pzengseu.github.io/2016/04/12/hello/index.html">
 <meta property="og:site_name" content="zp's blog">
-<meta property="og:description" content="前言想把python替代shell脚本,避免不了的问题是,在命令行中结合python脚本使用重定向,管道作为输入.
-方案python内置fileinput模块可以解决这个问题,如下脚本:123456#!/usr/bin/env python3import fileinputwith fileinput.input() as f_input:    for line in f_input:">
-<meta property="og:updated_time" content="2016-01-26T02:15:47.000Z">
+<meta property="og:description" content="12abc">
+<meta property="og:updated_time" content="2016-04-12T12:43:29.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="通过重定向,管道来作为python脚本的输入">
-<meta name="twitter:description" content="前言想把python替代shell脚本,避免不了的问题是,在命令行中结合python脚本使用重定向,管道作为输入.
-方案python内置fileinput模块可以解决这个问题,如下脚本:123456#!/usr/bin/env python3import fileinputwith fileinput.input() as f_input:    for line in f_input:">
+<meta name="twitter:title" content="Hello  537">
+<meta name="twitter:description" content="12abc">
 
 
 
@@ -89,7 +86,7 @@
   };
 </script>
 
-  <title> 通过重定向,管道来作为python脚本的输入 | zp's blog </title>
+  <title> Hello  537 | zp's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -258,7 +255,7 @@
             
             
               
-                通过重定向,管道来作为python脚本的输入
+                Hello  537
               
             
           </h1>
@@ -270,8 +267,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-01-25T11:09:03+08:00" content="2016-01-25">
-              2016-01-25
+            <time itemprop="dateCreated" datetime="2016-04-12T20:38:25+08:00" content="2016-04-12">
+              2016-04-12
             </time>
           </span>
 
@@ -300,8 +297,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/01/25/python/script-input-python/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/25/python/script-input-python/" itemprop="commentsCount"></span>
+                <a href="/2016/04/12/hello/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/12/hello/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -322,10 +319,7 @@
       
 
       
-        <h2 id="u524D_u8A00"><a href="#u524D_u8A00" class="headerlink" title="前言"></a>前言</h2><p>想把python替代shell脚本,避免不了的问题是,在命令行中结合python脚本使用重定向,管道作为输入.</p>
-<h2 id="u65B9_u6848"><a href="#u65B9_u6848" class="headerlink" title="方案"></a>方案</h2><p>python内置fileinput模块可以解决这个问题,如下脚本:<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env <span class="keyword">python3</span></span><br><span class="line">import fileinput</span><br><span class="line"></span><br><span class="line">with fileinput.<span class="built_in">input</span>() <span class="keyword">as</span> f_inpu<span class="variable">t:</span></span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">line</span> in f_inpu<span class="variable">t:</span></span><br><span class="line">        <span class="keyword">print</span>(<span class="built_in">line</span>, end=<span class="string">''</span>)</span><br></pre></td></tr></table></figure></p>
-<p>运行结果如下:<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">zp@zpen<span class="variable">g:</span>~/PycharmProjects/script$ <span class="keyword">ls</span> ~ | <span class="keyword">python3</span> filein.<span class="keyword">py</span> </span><br><span class="line">app Desktop Documents Downloads hexo_zp_next mnt Music node_modules npm-<span class="keyword">debug</span>.<span class="built_in">log</span> Pictures Public PycharmProjects software Templates tmp Videos vmware 流量牵引.docx </span><br><span class="line">zp@zpen<span class="variable">g:</span>~/PycharmProjects/script$ <span class="keyword">python3</span> filein.<span class="keyword">py</span> &lt; filein.<span class="keyword">py</span> </span><br><span class="line">#!/usr/bin/env <span class="keyword">python3</span> import fileinput  with fileinput.<span class="built_in">input</span>() <span class="keyword">as</span> f_inpu<span class="variable">t:</span> <span class="keyword">for</span> <span class="built_in">line</span> in f_inpu<span class="variable">t:</span> <span class="keyword">print</span>(<span class="built_in">line</span>.strip(), end=<span class="string">' '</span>) <span class="keyword">print</span>() </span><br><span class="line">zp@zpen<span class="variable">g:</span>~/PycharmProjects/script$</span><br></pre></td></tr></table></figure></p>
-<p>可见这样可以将python脚本当做shell脚本来用.</p>
+        <h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><h2 id="2"><a href="#2" class="headerlink" title="2"></a>2</h2><h3 id="a"><a href="#a" class="headerlink" title="a"></a>a</h3><h3 id="b"><a href="#b" class="headerlink" title="b"></a>b</h3><h3 id="c"><a href="#c" class="headerlink" title="c"></a>c</h3><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="298" height="52" src="http://music.163.com/outchain/player?type=2&id=29947420&auto=1&height=32"></iframe>
 
       
     </div>
@@ -334,9 +328,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/python/" rel="tag">#python</a>
+            <a href="/tags/hello/" rel="tag">#hello</a>
           
-            <a href="/tags/shell/" rel="tag">#shell</a>
+            <a href="/tags/python/" rel="tag">#python</a>
           
         </div>
       
@@ -345,17 +339,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/01/24/SDN/ryu-firewall/" rel="next" title="RYU控制器的firewall功能">
-                <i class="fa fa-chevron-left"></i> RYU控制器的firewall功能
+              <a href="/2016/04/06/read/Ming-those-things/" rel="next" title="明朝哪些事儿">
+                <i class="fa fa-chevron-left"></i> 明朝哪些事儿
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/01/25/python/rest-to-json/" rel="prev" title="格式化输出json格式">
-                格式化输出json格式 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -404,8 +394,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/01/25/python/script-input-python/"
-           data-title="通过重定向,管道来作为python脚本的输入" data-url="http://pzengseu.github.io/2016/01/25/python/script-input-python/">
+      <div class="ds-thread" data-thread-key="2016/04/12/hello/"
+           data-title="Hello  537" data-url="http://pzengseu.github.io/2016/04/12/hello/">
       </div>
     
   </div>
@@ -550,7 +540,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#u524D_u8A00"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u65B9_u6848"><span class="nav-number">2.</span> <span class="nav-text">方案</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1"><span class="nav-number">1.</span> <span class="nav-text">1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2"><span class="nav-number">1.1.</span> <span class="nav-text">2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#a"><span class="nav-number">1.1.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#b"><span class="nav-number">1.1.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#c"><span class="nav-number">1.1.3.</span> <span class="nav-text">c</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

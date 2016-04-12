@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Reading, thinking and coding]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://pzengseu.github.io/"/>
-  <updated>2016-04-06T14:18:51.000Z</updated>
+  <updated>2016-04-12T12:43:29.000Z</updated>
   <id>http://pzengseu.github.io/</id>
   
   <author>
@@ -13,6 +13,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Hello  537]]></title>
+    <link href="http://pzengseu.github.io/2016/04/12/hello/"/>
+    <id>http://pzengseu.github.io/2016/04/12/hello/</id>
+    <published>2016-04-12T12:38:25.000Z</published>
+    <updated>2016-04-12T12:43:29.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><h2 id="2"><a href="#2" class="headerlink" title="2"></a>2</h2><h3 id="a"><a href="#a" class="headerlink" title="a"></a>a</h3><h3 id="b"><a href="#b" class="headerlink" title="b"></a>b</h3><h3 id="c"><a href="#c" class="headerlink" title="c"></a>c</h3><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="298" height="52" src="http://music.163.com/outchain/player?type=2&id=29947420&auto=1&height=32"></iframe>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><h2 id="2"><a href="#2" class="headerlink" title="2"></a>2</h2><h3 id="a"><a ]]>
+    </summary>
+    
+      <category term="hello" scheme="http://pzengseu.github.io/tags/hello/"/>
+    
+      <category term="python" scheme="http://pzengseu.github.io/tags/python/"/>
+    
+      <category term="技术" scheme="http://pzengseu.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[明朝哪些事儿]]></title>
